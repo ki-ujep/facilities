@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ device.name }}
+{% endblock %}
+
+{% block main %}
+
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Facilities</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'facultydevices' faculty_id=faculty.id order='asc'%}">{{ faculty.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ device.name }}</li>
+    </ol>
+</nav>
+
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'contacts' order='asc'%}">Contacts</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}">{{ contact.name }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ device.name }}</li>
+    </ol>
+</nav>
+
+
+<div class="card mt-5 container" style="max-width: 800px;">
+    <div class="card-header">
+
+        <h3 class="card-title text-center ">{{ device.name }}</h5>
+
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
+        </form>
+        
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
+        </form>
+        
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{device.category.name}}">{{device.category.name}}</button>
+        </form>
+        
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
+        </form>
+    
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ device.usage.academical_usage }}">{{ device.usage.academical_usage }}</button>
+        </form>
+
+    </div>
+    <div class="card-body">
+        <img src="{{ device.picture_path }}" class="card-img-top" alt="{{ device.name }} device picture">
+        <p class="card-text">{{ device.description }}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <span class="fw-bold">Serial Number:</span> {{device.serial_number}}
+            </li>
+            <li class="list-group-item">
+                <span class="fw-bold">Academical usage:</span> {{device.usage.academical_usage}}
+            </li>
+            <li class="list-group-item">
+                <span class="fw-bold">Contact name:</span> {{device.contact.name}}
+            </li>
+            <li class="list-group-item">
+                <span class="fw-bold">Contact email:</span> {{device.contact.email}}
+            </li>
+            <li class="list-group-item">
+                <span class="fw-bold">Contact phone:</span> {{device.contact.phone}}
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+{% endblock %}

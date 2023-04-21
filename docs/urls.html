@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>urls.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>urls.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>endpointy aplikace (cesta, metoda z view, nazev pro template tagy v url)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;home/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;home&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;facultydevices/&lt;int:faculty_id&gt;/&lt;str:order&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">facultydevices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;facultydevices&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;contactdevices/&lt;int:contact_id&gt;/&lt;str:order&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">contactdevices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;contactdevices&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;device/&lt;int:device_id&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;device&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;contacts/&lt;str:order&gt;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">contacts</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;contacts&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;help/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">help</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;help&quot;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;about/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">about</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;about&quot;</span><span class="p">),</span>  
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;search_result/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">search_result</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;search_result&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

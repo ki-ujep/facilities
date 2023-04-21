@@ -1,0 +1,119 @@
+[
+    {
+        "model": "client.contact",
+        "pk": 1,
+        "fields":{
+            "name": "Doc. Dr. Ing. Pavel Kuráň",
+            "email": "pavel.kuran@ujep.cz",
+            "phone": "+420 607 964 365",
+            "photo": "kuran_pavel.png"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 2,
+        "fields":{
+            "name": "Doc. Ing. Josef Trögl, Ph.D.",
+            "email": "josef.trogl@ujep.cz",
+            "phone": "+420 475 284 153",
+            "photo": "trogl_josef.png"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 3,
+        "fields":{
+            "name": "Doc. Ing. Martin Kormunda, Ph.D.",
+            "email": "martin.kormunda@ujep.cz",
+            "phone": "+420 475 286 624",
+            "photo": "kormunda_martin.jpeg"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 4,
+        "fields":{
+            "name": "Doc. RNDr. Marek Malý, Ph.D.",
+            "email": "marek.maly@ujep.cz",
+            "phone": "+420 475 286 651",
+            "photo": "maly_marek.jpeg"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 5,
+        "fields":{
+            "name": "Dr. Dominika Wróbel",
+            "email": "dominika_wrobel@o2.pl",
+            "phone": "+420 475 283 376"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 6,
+        "fields":{
+            "name": "Mgr. Jan Malý, Ph.D.",
+            "email": "jan.maly@ujep.cz",
+            "phone": "+420 475 283 376",
+            "photo": "maly_jan.jpeg"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 7,
+        "fields":{
+            "name": "Mgr. Jindřich Matoušek, Ph.D.",
+            "email": "jindrich.matousek@ujep.cz",
+            "phone": "+420 475 283 145",
+            "photo": "matousek_jindrich.jpeg"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 8,
+        "fields":{
+            "name": "Mgr. Marcel Štofik, Ph.D.",
+            "email": "marcel.stofik@ujep.cz",
+            "phone": "+420 475 283 376"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 9,
+        "fields":{
+            "name": "Mgr. Petr Ryšánek",
+            "email": "petr.rysanek@ujep.cz",
+            "phone": "+420 475 286 644",
+            "photo": "rysanek_petr.jpeg"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 10,
+        "fields":{
+            "name": "Prof. Ing. Pavel Janoš, CSc.",
+            "email": "pavel.janos@ujep.cz",
+            "phone": "+420 475 284 148",
+            "photo": "janos_pavel.png"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 11,
+        "fields":{
+            "name": "Prof. Ing. Zdeňka Kolská, Ph.D.",
+            "email": "zdenka.kolska@ujep.cz",
+            "phone": "+420 475 283 144"
+        } 
+    },
+    {
+        "model": "client.contact",
+        "pk": 12,
+        "fields":{
+            "name": "Prof. RNDr. Pavla Čapková, DrSc.",
+            "email": "pavla.capkova@ujep.cz",
+            "phone": "+420 773 934 548",
+            "photo": "capkova_pavla.jpeg"
+        } 
+    }
+]

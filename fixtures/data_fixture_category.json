@@ -1,0 +1,107 @@
+[
+  {
+    "model": "client.category",
+    "pk": 1,
+    "fields":{
+      "name": "Analyzer"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 2,
+    "fields":{
+      "name": "Chromatographic techniques"
+    } 
+  },
+  {
+    "model": "client.category",
+    "pk": 3,
+    "fields":{
+      "name": "Electrochemical techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 4,
+    "fields":{
+      "name": "Reactors"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 5,
+    "fields":{
+      "name": "Spectroscopical techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 6,
+    "fields":{
+      "name": "Analyzer"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 7,
+    "fields":{
+      "name": "Microbiological techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 8,
+    "fields":{
+      "name": "Microscopical techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 9,
+    "fields":{
+      "name": "Particle size distribution techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 10,
+    "fields":{
+      "name": "Physical properties measuring systems"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 11,
+    "fields":{
+      "name": "Reactors"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 12,
+    "fields":{
+      "name": "Sample preparation techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 13,
+    "fields":{
+      "name": "Spectroscopical techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 14,
+    "fields":{
+      "name": "Surface characterization techniques"
+    } 
+  },  
+  {
+    "model": "client.category",
+    "pk": 15,
+    "fields":{
+      "name": "XRD techniques"
+    } 
+  }  
+]

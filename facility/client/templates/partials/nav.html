@@ -1,0 +1,23 @@
+<nav id="mainnav" class="navbar navbar-expand-sm navbar-light bg-light border">
+    <div class="container-fluid">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'home' %}">Facility</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'contacts' order='asc' %}">Contacts</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'help' %}">Help</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+        </ul>
+
+        <form class="d-flex" action="{% url 'search_result' %}" method="get">
+          <input class="form-control me-2" type="text" name="query" placeholder="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+
+    </div>
+</nav>

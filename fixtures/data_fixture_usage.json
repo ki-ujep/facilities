@@ -1,0 +1,170 @@
+[
+    {
+        "model": "client.usage",
+        "pk": 1,
+        "fields":{
+            "academical_usage": "Analysis of thin films"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 2,
+        "fields":{
+            "academical_usage": "Analytical chemistry"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 3,
+        "fields":{
+            "academical_usage": "Atomic force microscopy"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 4,
+        "fields":{
+            "academical_usage": "Biology"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 5,
+        "fields":{
+            "academical_usage": "Biomedical and environmental applications"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 6,
+        "fields":{
+            "academical_usage": "Biosensors/devices"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 7,
+        "fields":{
+            "academical_usage": "CO₂ sorption"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 8,
+        "fields":{
+            "academical_usage": "Composition analysis"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 9,
+        "fields":{
+            "academical_usage": "Computer simulations"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 10,
+        "fields":{
+            "academical_usage": "Diffraction"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 11,
+        "fields":{
+            "academical_usage": "Electrochemistry"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 12,
+        "fields":{
+            "academical_usage": "Electrospinning"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 13,
+        "fields":{
+            "academical_usage": "Elemental compositions/structural analysis"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 14,
+        "fields":{
+            "academical_usage": "Magnetron sputtering"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 15,
+        "fields":{
+            "academical_usage": "N₂ sorption"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 16,
+        "fields":{
+            "academical_usage": "Nanofibers"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 17,
+        "fields":{
+            "academical_usage": "Nanomaterials"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 18,
+        "fields":{
+            "academical_usage": "Optical microscopy"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 19,
+        "fields":{
+            "academical_usage": "Plasma treatment of powders"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 20,
+        "fields":{
+            "academical_usage": "Protein and whole-cell biosensors"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 21,
+        "fields":{
+            "academical_usage": "Spectrophotometer"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 22,
+        "fields":{
+            "academical_usage": "Surface properties"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 23,
+        "fields":{
+            "academical_usage": "Toxicity"
+        } 
+    },
+    {
+        "model": "client.usage",
+        "pk": 24,
+        "fields":{
+            "academical_usage": "Zeta potential"
+        } 
+    }
+]

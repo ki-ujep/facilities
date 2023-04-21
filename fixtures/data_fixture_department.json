@@ -1,0 +1,50 @@
+[
+  {
+    "model": "client.department",
+    "pk": 1,
+    "fields":{
+      "name": "Centre for Nanomaterials and Biotechnology",
+      "faculty": 2
+    } 
+  },
+  {
+    "model": "client.department",
+    "pk": 2,
+    "fields":{
+      "name": "Department of Biology",
+      "faculty": 2
+    } 
+  },
+  {
+    "model": "client.department",
+    "pk": 3,
+    "fields":{
+      "name": "Department of Chemistry",
+      "faculty": 1
+    } 
+  },
+  {
+    "model": "client.department",
+    "pk": 4,
+    "fields":{
+      "name": "Department of Environmental Chemistry and Technology",
+      "faculty": 1
+    } 
+  },
+  {
+    "model": "client.department",
+    "pk": 5,
+    "fields":{
+      "name": "Department of Physics",
+      "faculty": 2
+    } 
+  },
+  {
+    "model": "client.department",
+    "pk": 6,
+    "fields":{
+      "name": "Faculty of Environment",
+      "faculty": 1
+    } 
+  }
+]

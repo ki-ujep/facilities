@@ -1,0 +1,10 @@
+#nahrání dat:
+python manage.py loaddata data_fixture...
+
+#ověření dat:
+python manage.py shell
+from názevappky.models import NazevModelu
+NazevModelu.objects.all().values()
+
+#sběr static files do global static files adresare
+python manage.py collectstatic

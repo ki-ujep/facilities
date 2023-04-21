@@ -1,0 +1,16 @@
+[
+    {
+        "model": "client.faculty",
+        "pk": 1,
+        "fields":{
+            "name": "Faculty of Environment"
+        } 
+    },
+    {
+        "model": "client.faculty",
+        "pk": 2,
+        "fields":{
+            "name": "Faculty of Science"
+        } 
+    }
+]    

@@ -1,0 +1,24 @@
+#logo img {
+    max-height: 70px;
+    max-width: 350px;
+}
+
+main {
+    margin-bottom: 100px;
+}
+
+#mainnav, footer {
+    /* background-color: #e9e9f9 ; */
+}
+
+#mainnav li {
+    border-right: solid grey 2px;
+}
+
+#mainnav li:hover {
+    transform: scale(1.1);
+}
+
+.stripedlist > li:nth-of-type(odd) {
+    background-color: #e9e9f9 ;
+}
