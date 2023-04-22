@@ -60,7 +60,8 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='img/managers', blank=True)
+    photo = models.ImageField(upload_to='managers/', max_length=255, blank=True,
+                              default="managers/male.png")
 
     def __str__(self):
         return f"{self.name}"
@@ -77,7 +78,7 @@ class Category(models.Model):
 # === Device ===
 class Device(models.Model):
     name = models.CharField(max_length=255)
-    picture_path = models.FilePathField(null=True)
+    picture = models.ImageField(upload_to="device_pictures/", max_length=255, null=True)
     description = models.CharField(max_length=1000)
     serial_number = models.CharField(max_length=255, null=True)
     usage = models.ForeignKey(Usage, on_delete=models.SET_NULL, null=True)
@@ -93,8 +94,8 @@ class Device(models.Model):
 
 # === Attachment ===
 class Attachment(models.Model):
-    path = models.FilePathField()
+    file = models.FileField(upload_to="attachments/", max_length=255, null=True)
     device = models.ForeignKey(Device, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.path}"
+        return f"{self.file.path}"
