@@ -50,7 +50,9 @@
 
     </div>
     <div class="card-body">
-        <img src="{{ device.picture_path }}" class="card-img-top" alt="{{ device.name }} device picture">
+        {% if device.picture %}
+            <img src="{{ device.picture.url }}" class="card-img-top" alt="{{ device.name }} device picture">
+        {% endif %}
         <p class="card-text">{{ device.description }}</p>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -74,3 +76,4 @@
 </div>
 
 {% endblock %}
+
