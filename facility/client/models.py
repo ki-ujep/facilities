@@ -98,4 +98,4 @@ class Attachment(models.Model):
     device = models.ForeignKey(Device, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.file.path}"
+        return f"{self.file.name}"
