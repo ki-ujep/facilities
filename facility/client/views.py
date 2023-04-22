@@ -1,37 +1,30 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, get_object_or_404
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 from django.db.models import Q
 
 
 def home(request):
-    template = loader.get_template("home.html")
-    faculties = Faculty.objects.all().order_by("name").values()
+    faculties = Faculty.objects.all().order_by("name")
     context = {
         "faculties": faculties,
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "home.html", context)
 
 def facultydevices(request, faculty_id, order):
-    template = loader.get_template("facultydevices.html")
+    faculty = get_object_or_404(Faculty, id=faculty_id)
     if order == "asc":
-        faculty_devices = Device.objects.filter(faculty_id=faculty_id).order_by("name", "department")
+        faculty_devices = Device.objects.filter(faculty=faculty).order_by("name", "department")
     else:
-        faculty_devices = Device.objects.filter(faculty_id=faculty_id).order_by("-name", "department")
-    faculty_name = Faculty.objects.get(id=faculty_id).name
+        faculty_devices = Device.objects.filter(faculty=faculty).order_by("-name", "department")
     context = {
         "faculty_devices": faculty_devices,
-        "faculty_name": faculty_name,
-        "faculty_id": faculty_id,
+        "faculty_name": faculty.name,
+        "faculty_id": faculty.id,
         "order": order
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "facultydevices.html", context)
 
 def search_result(request):
-    template = loader.get_template("facultydevices.html")
     query = request.GET.get("query")
 
     devices = Device.objects.filter(Q(name=query) | Q(serial_number=query))
@@ -61,56 +54,47 @@ def search_result(request):
         "faculty_name": faculty_name,
         "order": "disable"
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "facultydevices.html", context)
 
 def contactdevices(request, contact_id, order):
-    template = loader.get_template("contactdevices.html")
+    contact = get_object_or_404(Contact, id=contact_id)
     if order == "asc":
-        contact_devices = Device.objects.filter(contact_id=contact_id).order_by("name", "department")
+        contact_devices = Device.objects.filter(contact=contact).order_by("name", "department")
     else:
-        contact_devices = Device.objects.filter(contact_id=contact_id).order_by("-name", "department")
-    contact_name = Contact.objects.get(id=contact_id).name
+        contact_devices = Device.objects.filter(contact=contact).order_by("-name", "department")
     context = {
         "contact_devices": contact_devices,
-        "contact_name": contact_name,
-        "contact_id": contact_id,
+        "contact_name": contact.name,
+        "contact_id": contact.id,
         "order": order
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "contactdevices.html", context)
 
 def device(request, device_id):
-    template = loader.get_template("device.html")
-    device = Device.objects.get(id=device_id)
-    faculty = Faculty.objects.get(id=device.faculty_id)
-    contact = Contact.objects.get(id=device.contact_id)
+    device = get_object_or_404(Device, id=device_id)
+    faculty = device.faculty
+    contact = device.contact
     context = {
         "device": device,
         "faculty": faculty,
         "contact": contact
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "device.html", context)
 
 def contacts(request, order):
-    template = loader.get_template("contacts.html")
-    if order=="asc":
-        contacts = Contact.objects.all().order_by("name").values()
+    if order == "asc":
+        contacts = Contact.objects.all().order_by("name")
     else:
-        contacts = Contact.objects.all().order_by("-name").values()
+        contacts = Contact.objects.all().order_by("-name")
     context = {
         "contacts": contacts,
         "order": order
     }
-    return HttpResponse(template.render(context, request))
-
+    return render(request, "contacts.html", context)
 
 def help(request):
-    template = loader.get_template("help.html")
-    return HttpResponse(template.render())
-
+    return render(request, "help.html")
 
 def about(request):
-    template = loader.get_template("about.html")
-    return HttpResponse(template.render())
+    return render(request, "about.html")
+
