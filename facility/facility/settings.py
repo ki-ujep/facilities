@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'facility.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'facilities',
+        'USER': 'facilities',
+        'PASSWORD': 'letmein',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
