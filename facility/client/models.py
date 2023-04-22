@@ -34,6 +34,9 @@ class Laboratory(models.Model):
     name = models.CharField(max_length=255)
     adress = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name_plural = "Laboratories"
+
     def __str__(self):
         return f"{self.name}"
 
@@ -41,6 +44,9 @@ class Laboratory(models.Model):
 # === Faculty ===
 class Faculty(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = "Faculties"
 
     def __str__(self):
         return f"{self.name}"
@@ -70,7 +76,10 @@ class Contact(models.Model):
 # === Category ===
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
     def __str__(self):
         return f"{self.name}"
 
