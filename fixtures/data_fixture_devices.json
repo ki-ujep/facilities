@@ -1,642 +1,642 @@
 [
-  {
-    "model": "client.device",
-    "pk": 1,
-    "fields":{
-      "name": "Analyser of total and organic carbon",
-      "picture_path": "https://facility.ujep.cz/d/1/Pictures/Analyser%20of%20total%20and%20organic%20carbon.jpg",
-      "description": "Universal 96-well microplate UV-VIS spectrophotometer with PathCheck technology for correction of sample volume variations.",
-      "serial_number": null,
-      "usage": 21,
-      "laboratory": null,
-      "department": 4,
-      "contact": 2,
-      "category": 1,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 2,
-    "fields":{
-      "name": "Atomic force microscope Integra",
-      "picture_path": "https://facility.ujep.cz/d/2/Pictures/Atomic%20force%20microscope%20Integra.jpg",
-      "description": "Atomic force microscopy system is useful for analysis of morphology and structure of nanomaterials in air and liquid environment with atomic resolution. It can be used in wide range of applications including the characterization of proteins, DNA, viruses, bacterial cells, tissues, surface morphology of nanostructured materials, local piezoelectric properties, local adhesion properties, magnetic domain structure visualization, polymer monocrystals, polymer nanoparticles, LB-films, thin organic films, nanopowders, nanocomposites, nanoporous materials, fullerenes, nanotubes, nanofilaments, nanocapsules and performing AFM and STM lithography.",
-      "serial_number": "NTMDT -- Integra Vita",
-      "usage": 3,
-      "laboratory": null,
-      "department": 1,
-      "contact": 6,
-      "category": 8,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 3,
-    "fields":{
-      "name": "CO2 sorption, AUTOSORB Anton Paar",
-      "picture_path": "https://facility.ujep.cz/d/3/Pictures/CO2%20sorption%20AUTOSORB%20Anton%20Paar.jpg",
-      "description": "Surface area and porosity analyser on the base of adsorption/desorption isotherms (N2 sorption). BET and BJH analyses for surface area (BET) and porosity (BJH).",
-      "serial_number": null,
-      "usage": 15,
-      "laboratory": null,
-      "department": 1,
-      "contact": 11,
-      "category": 14,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 4,
-    "fields":{
-      "name": "Complete infrastructure for mammalian cell cultivation and related experiments",
-      "picture_path": "https://facility.ujep.cz/d/4/Pictures/Complete%20infrastructure%20for%20mammalian%20cell%20cultivation%20and%20related%20experiments.jpg",
-      "description": "Complete infrastructure for mammalian cell cultivation and related experiments",
-      "serial_number": null,
-      "usage": 4,
-      "laboratory": null,
-      "department": 2,
-      "contact": 5,
-      "category": 7,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 5,
-    "fields":{
-      "name": "Confocal microscope - LEICA CLSM SP8/DLS",
-      "picture_path": "https://facility.ujep.cz/d/5/Pictures/Confocal%20microscope%20LEICA.jpg",
-      "description": "Fully motorized confocal laser scanning microscope SP8 from Leica enclosed in an environmental chamber allowing temperature, humidity and CO2 levels control around the sample. Equipped with a digital light sheet (DLS) module.",
-      "serial_number": null,
-      "usage": 18,
-      "laboratory": null,
-      "department": 1,
-      "contact": 6,
-      "category": 8,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 6,
-    "fields":{
-      "name": "Electrokinetic analyser SurPASS",
-      "picture_path": "https://facility.ujep.cz/d/6/Pictures/Electrokinetic%20analyser%20SurPASS.jpg",
-      "description": "Measurement of zeta potential of solid samples. Solid surfaces can be measured in the form of flat samples (polymer foils, glass, etc.) and powders or fibres (all size has to be higher than 25 micrometers).",
-      "serial_number": null,
-      "usage": 24,
-      "laboratory": null,
-      "department": 1,
-      "contact": 11,
-      "category": 6,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 7,
-    "fields":{
-      "name": "Fluidized Bed Reactor",
-      "picture_path": "https://facility.ujep.cz/d/7/Pictures/Fluidized%20Bed%20Reactor.jpg",
-      "description": "Equipment for plasma treatment of powder materials",
-      "serial_number": null,
-      "usage": 19,
-      "laboratory": null,
-      "department": 5,
-      "contact": 7,
-      "category": 11,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 8,
-    "fields":{
-      "name": "GC-qMS Agilent",
-      "picture_path": "https://facility.ujep.cz/d/8/Pictures/GC-qMS%20Agilent.jpg",
-      "description": "Gas chromatograph Agilent 7980 with electron ionization and simple quadrupole detection (MS 5977E) equipped with autosampler CombiPAL for liquid, headspace and SPME sample introduction. Agilent MassHunter Workstation Software is used for data acquisition and analysis.",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 6,
-      "contact": 1,
-      "category": 2,
-      "faculty": 1 
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 9,
-    "fields":{
-      "name": "Goniometr",
-      "picture_path": "https://facility.ujep.cz/d/9/Pictures/Goniometr.jpg",
-      "description": "Equipment serves for determination of surface wettability and wettability changes before and after surface modifications.",
-      "serial_number": null,
-      "usage": 22,
-      "laboratory": null,
-      "department": 1,
-      "contact": 11,
-      "category": 14,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 10,
-    "fields":{
-      "name": "High Resolution Mass Spectrometer",
-      "picture_path": null,
-      "description": "GC/LC-HRMS Bruker Compact enables qualitative and qualitative analyses for wide range of compounds due to the variable sample input and separation and ionization techniques. It is applicable for determination polar or nonpolar compounds like degradation or synthesis products, extracts of environmental samples, etc. with sufficient volatility or solubility.",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 6,
-      "contact": 1,
-      "category": 5,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 11,
-    "fields":{
-      "name": "ICP-OES Optical Emission Spectrometer",
-      "picture_path": "https://facility.ujep.cz/d/11/Pictures/ICP-OES%20Optical%20Emission%20Spectrometer.jpg",
-      "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
-      "serial_number": null,
-      "usage_id": 21,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 5,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 12,
-    "fields":{
-      "name": "Ion Chromaatograph DIONEX",
-      "picture_path": "https://facility.ujep.cz/d/12/Pictures/Ion%20Chromaatograph%20DIONEX.jpg",
-      "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 2,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 13,
-    "fields":{
-      "name": "Laboratory of biosensors and microfluidics",
-      "picture_path": "https://facility.ujep.cz/d/13/Pictures/Laboratory%20of%20biosensors%20and%20microfluidics.jpg",
-      "description": "Complete infrastructure for the design, manufacturing and testing of biosensors and microfluidic devices for biomedical and environmental applications. Scanning electron microscope with electron lithography module , UV photolithographic instrument , magnetron sputtering device, microabrasive CNC lathe, reactive ion etching station , microfluidic liquid sample delivering system",
-      "serial_number": null,
-      "usage": 5,
-      "laboratory": null,
-      "department": 2,
-      "contact": 8,
-      "category": 7,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 14,
-    "fields":{
-      "name": "Laboratory of computational chemistry",
-      "picture_path": "https://facility.ujep.cz/d/14/Pictures/Laboratory%20of%20computational%20chemistry.png",
-      "description": "This laboratory is composed of two computer clusters for high performance computing. The newer cluster consists of 18 nodes &#34;DELL PowerEdge T640 Server&#34;, providing a great background especially for more demanding parallel computations. Each node is equipped with 2 Intel Xeon Gold 6240 processors and 192 GB (16 nodes) or 384 GB (2 nodes) RAM. In addition, 10 nodes are equipped with four GeForce RTX 2080 Ti graphics cards for GPU or GPU/CPU calculations. The older cluster consists of 9 older nodes &#34;Dell PowerEdge R720&#34; (2x Intel Xeon E5-2695 v3, 128 GB RAM) and two newer nodes &#34;TYAN - GPU Server FT48TB7105&#34; (2 x Intel Xeon Gold 6240, 192 GB RAM) which are moreover equipped also with 3 x GeForce RTX 2080 Ti for GPU accelerated calculations.",
-      "serial_number": null,
-      "usage": 9,
-      "laboratory": null,
-      "department": 5,
-      "contact": 4,
-      "category": 6,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 15,
-    "fields":{
-      "name": "Laboratory of nanofibrous materials",
-      "picture_path": null,
-      "description": "Fabrication ofpolymeric nanofiber membranes with specific functions using needle spinning.",
-      "serial_number": null,
-      "usage": 12,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 12,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 16,
-    "fields":{
-      "name": "Laboratory of Nanotoxicology and Model Organisms",
-      "picture_path": null,
-      "description": "Testing of toxicity and risk of nanomaterials",
-      "serial_number": null,
-      "usage": 23,
-      "laboratory": null,
-      "department": 1,
-      "contact": 6,
-      "category": 7,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 17,
-    "fields":{
-      "name": "Laboratory reactors",
-      "picture_path": null,
-      "description": "Laboratory - scale reactors for preparing metal oxide-based sorbents and related materials by homogeneous hydrolysis, sol-gel process, precipitation/calcination and similar techniques. Equipment for their functional testing.",
-      "serial_number": null,
-      "usage": 17,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 4,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 18,
-    "fields":{
-      "name": "Liquid Chromatograph",
-      "picture_path": "https://facility.ujep.cz/d/18/Pictures/Liquid%20Chromatograph.jpg",
-      "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 2,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 19,
-    "fields":{
-      "name": "Liquid chromatograph with diode-array detector Dionex",
-      "picture_path": "https://facility.ujep.cz/d/19/Pictures/Liquid%20chromatograph%20with%20diode-array%20detector%20Dionex.jpg",
-      "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 2,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 20,
-    "fields":{
-      "name": "Liquid chromatograph with MS detection",
-      "picture_path": "https://facility.ujep.cz/d/20/Pictures/Liquid%20chromatograph%20with%20MS%20detection.jpg",
-      "description": "Agilent 1290 Infinity UHPLC system consisting of an Agilent 1290 Infinity Binary Pump (G4220A), an Agilent 1290 Infinity High Performance Autosampler (G4226A), a sample cooler (G1330B), and an Agilent 1290 Infinity Thermostatted Column compartment (G1316C). The UHPLC system is coupled to an Agilent G6495 Triple Quadrupole LC/MS System equipped with an Agilent Jet Stream electrospray ionization source. Agilent MassHunter Workstation Software is used for data acquisition and analysis. Verified/validated methods are available for the determination trace residues of organic pollutants (e.g. pesticides).",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 2,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 21,
-    "fields":{
-      "name": "Microarray laser scanner",
-      "picture_path": "https://facility.ujep.cz/d/21/Pictures/Microarray%20laser%20scanner.jpg",
-      "description": "Instrument dedicated for development of novel sensitive optical protein/DNA/whole cell microarray diagnostic devices (biosensors) for environmental or biomedical applications. It enable to perform a highly sensitive scanning of fluorescence signals located on micrometer-sized spots of fluorescently labeled molecules attached to active biosensor surface. Instrument is equipped with powerful software for fast analysis of acquired data from individual spots with 3 µm scan resolution. It represents automated solution to innovative microarray research, genomics, proteomics and diagnostics, and is essential equipment for life science and healthcare related basic and application research.",
-      "serial_number": null,
-      "usage": 6,
-      "laboratory": null,
-      "department": 2,
-      "contact": 6,
-      "category": 6,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 22,
-    "fields":{
-      "name": "Microarray printer",
-      "picture_path": "https://facility.ujep.cz/d/22/Pictures/Microarray%20printer.jpg",
-      "description": "Microarrayer is the printing technology to produce diverse DNA, protein, reverse phase and whole cell microarray content in personal desktop designs. It represents automated solution to innovative microarray research, genomics, proteomics and diagnostics, and is essential equipment for life science and healthcare related basic and application research.",
-      "serial_number": null,
-      "usage": 20,
-      "laboratory": null,
-      "department": 1,
-      "contact": 6,
-      "category": 12,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 23,
-    "fields":{
-      "name": "Microplate spectrophotometer",
-      "picture_path": "https://facility.ujep.cz/d/23/Pictures/Microplate%20spectrophotometer.jpg",
-      "description": "Universal 96-well microplate UV-VIS spectrophotometer with PathCheck technology for correction of sample volume variations.",
-      "serial_number": null,
-      "usage": 21,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 5,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 24,
-    "fields":{
-      "name": "Potentiostat METHROHM",
-      "picture_path": "https://facility.ujep.cz/d/24/Pictures/Potentiostat%20METROHM.jpg",
-      "description": "Study of electrochemical and photo-electrochemical transformations, electrochemical properties of (nano)materials",
-      "serial_number": null,
-      "usage": 11,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 3,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 25,
-    "fields":{
-      "name": "Precise photo-reactor with optical bench",
-      "picture_path": "https://facility.ujep.cz/d/25/Pictures/Precise%20photo-reactor%20with%20optical%20bench.jpg",
-      "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
-      "serial_number": null,
-      "usage": 17,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 4,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 26,
-    "fields":{
-      "name": "Secondary Ion Mass Spectrometer SIMS",
-      "picture_path": "https://facility.ujep.cz/d/26/Pictures/Secondary%20Ion%20Mass%20Spectrometer%20SIMS.jpg",
-      "description": "Analytical equipment for surface analysis. Secondary Ion Mass Spectrometer equipped with two sources of ions. Cs ion gun and O2 ion gun (possible to switch to Ar)",
-      "serial_number": null,
-      "usage": 1,
-      "laboratory": null,
-      "department": 5,
-      "contact": 7,
-      "category": 13,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 27,
-    "fields":{
-      "name": "Spectrofluorometer FluorMax 4",
-      "picture_path": "https://facility.ujep.cz/d/27/Pictures/Spectrofluorometer%20FluorMax%204.jpg",
-      "description": "Spectrofluorometr dedicated for wide range of optical fluorescence measurements, including fluorescence polarization anisotropy analysis.",
-      "serial_number": null,
-      "usage": 17,
-      "laboratory": null,
-      "department": 2,
-      "contact": 5,
-      "category": 13,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 28,
-    "fields":{
-      "name": "Spectrophotometer Cary 50",
-      "picture_path": "https://facility.ujep.cz/d/28/Pictures/Spectrophotometer%20Cary%2050.jpg",
-      "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
-      "serial_number": null,
-      "usage": 21,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 5,
-      "faculty": 1
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 29,
-    "fields":{
-      "name": "Surface area and porosity analyser; determination of CO2 sorption, AUTOSORB, Anton Paar",
-      "picture_path": "https://facility.ujep.cz/d/29/Pictures/Surface%20area%20and%20porosity%20analyser%20determination%20of%20CO2%20sorption%20AUTOSORB%20Anton%20Paar.jpg",
-      "description": "Instrument is able to determine the volume of adsorbed CO2 at temperature 0°C.",
-      "serial_number": null,
-      "usage": 7,
-      "laboratory": null,
-      "department": 1,
-      "contact": 11,
-      "category": 14,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 30,
-    "fields":{
-      "name": "Tester of Liquid Permeability of nanofibrous membranes",
-      "picture_path": null,
-      "description": "Characterization of nanofiber polymeric membranes",
-      "serial_number": null,
-      "usage": 16,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 10,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 31,
-    "fields":{
-      "name": "Tester of mechanical strength of nanofiber membranes",
-      "picture_path": null,
-      "description": "Characterization of nanofiber polymeric membranes - test of mechanical strength of polymer membranes",
-      "serial_number": null,
-      "usage": 16,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 10,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 32,
-    "fields":{
-      "name": "Tester of Membrane Air Permeability of nanofibrous membranes",
-      "picture_path": null,
-      "description": "Characterization of nanofiber polymeric membranes",
-      "serial_number": null,
-      "usage": 16,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 10,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 33,
-    "fields":{
-      "name": "Two-Dimensional Gas Chromatograph *",
-      "picture_path": null,
-      "description": "Gas Chromatograph (Agilent 7890) equipped with multimode inlet (split/splitless/LVI/PTV), GCxGC modulator ZOEX and coupled with flame ionization detector and mass spectrometry detector (Agilent 7250) quadrupole - time-of-flight (q-TOF). Deans Switch placed blind GCxGC modulator allows two-dimensional chromatography on FID or q-TOF.",
-      "serial_number": null,
-      "usage": 2,
-      "laboratory": null,
-      "department": 6,
-      "contact": 1,
-      "category": 2,
-      "faculty": 1 
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 34,
-    "fields":{
-      "name": "Universal magnetron deposition system",
-      "picture_path": "https://facility.ujep.cz/d/34/Pictures/Universal%20magnetron%20deposition%20system.jpg",
-      "description": "The magnetron deposition system with variable system up to 3 magnetron with 2in targets in diameter. Various power supplies are available RF, DC, RF pulsed, DC pulsed for sputtering of metals or metal oxides.  The deposition table can be heated up to about 200 oC or rotated. The RF bias can be induced on the substrate during the deposition and synchronized to target sputtering RF plasma.",
-      "serial_number": null,
-      "usage": 14,
-      "laboratory": null,
-      "department": 5,
-      "contact": 4,
-      "category": 11,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 35,
-    "fields":{
-      "name": "UV/Vis spectrophotometer CINTRA with an integrating sphere",
-      "picture_path": "https://facility.ujep.cz/d/35/Pictures/UV%20Vis%20spectrophotometer%20CINTRA.jpg",
-      "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
-      "serial_number": null,
-      "usage": 21,
-      "laboratory": null,
-      "department": 3,
-      "contact": 10,
-      "category": 5,
-      "faculty": 1
-    } 
-  },   
-  {
-    "model": "client.device",
-    "pk": 36,
-    "fields":{
-      "name": "WDRF spectrometer Rigaku Primus IV",
-      "picture_path": "https://facility.ujep.cz/d/36/Pictures/WDRF%20spectrometer%20Rigaku%20Primus%20IV.jpg",
-      "description": "Tube-above wavelength dispersive X-ray spectrometer for fast elemental analysis of powders, liquids and bulk materials in range F-U. This spectrometer is equipped with micromapping utility for analysis of defects and for mapping of chemical composition.",
-      "serial_number": null,
-      "usage": 8,
-      "laboratory": null,
-      "department": 5,
-      "contact": 9,
-      "category": 15,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 37,
-    "fields":{
-      "name": "X-ray difractometer Panalytical X",
-      "picture_path": "https://facility.ujep.cz/d/37/Pictures/X-ray%20difractometer%20Panalytical%20X.jpg",
-      "description": "Universal XRD powder diffractometer, with Cu Kalpha x-ray tube. Measurements could be done in reflection and transmission mode. The device is equiped with smart detector, kolimator , Göbbel mirror and Euler stage.",
-      "serial_number": null,
-      "usage": 10,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 15,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 38,
-    "fields":{
-      "name": "X-ray powder diffractometer with optics for nanolayers and nanosurfaces",
-      "picture_path": null,
-      "description": "X-ray diffractometer equipped with optics for structure analysis of polycrystalline thin films  and nanosurfaces.",
-      "serial_number": null,
-      "usage": 10,
-      "laboratory": null,
-      "department": 1,
-      "contact": 12,
-      "category": 15,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 39,
-    "fields":{
-      "name": "XPS/ESCA and Auger electron spectroscopy",
-      "picture_path": "https://facility.ujep.cz/d/39/Pictures/XPS%20ESCA%20and%20Auger%20electron%20spectroscopy.jpg",
-      "description": "The instrument is an electron spectrometer SPECS with X-Ray source (Al, Mg) for XPS/ESCA analyses and also with electron source (50 eV - 3000 eV) for Auger electron spectroscopy.",
-      "serial_number": null,
-      "usage": 13,
-      "laboratory": null,
-      "department": 5,
-      "contact": 3,
-      "category": 13,
-      "faculty": 2
-    } 
-  },
-  {
-    "model": "client.device",
-    "pk": 40,
-    "fields":{
-      "name": "Zetasizer nano ZS",
-      "picture_path": "https://facility.ujep.cz/d/40/Pictures/Zetasizer%20nano%20ZS.jpg",
-      "description": "Dynamic light scattering (DLS) is a non-invasive, well-established technique for measuring the size and size distribution of molecules and particles typically in the submicron region. Typical applications of dynamic light scattering are the characterization of particles, emulsions or molecules, which have been dispersed or dissolved in a liquid. The Brownian motion of particles or molecules in suspension causes laser light to be scattered at different intensities. Analysis of these intensity fluctuations yields the velocity of the Brownian motion and hence the particle size using the Stokes-Einstein relationship.",
-      "serial_number": null,
-      "usage": 17,
-      "laboratory": null,
-      "department": 2,
-      "contact": 5,
-      "category": 9,
-      "faculty": 2
-    } 
-  }
+    {
+        "model": "client.device",
+        "pk": 1,
+        "fields": {
+            "name": "Analyser of total and organic carbon",
+            "description": "Universal 96-well microplate UV-VIS spectrophotometer with PathCheck technology for correction of sample volume variations.",
+            "serial_number": null,
+            "usage": 21,
+            "laboratory": null,
+            "department": 4,
+            "contact": 2,
+            "category": 1,
+            "faculty": 1,
+            "picture": "device_pictures/Analyser of total and organic carbon.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 2,
+        "fields": {
+            "name": "Atomic force microscope Integra",
+            "description": "Atomic force microscopy system is useful for analysis of morphology and structure of nanomaterials in air and liquid environment with atomic resolution. It can be used in wide range of applications including the characterization of proteins, DNA, viruses, bacterial cells, tissues, surface morphology of nanostructured materials, local piezoelectric properties, local adhesion properties, magnetic domain structure visualization, polymer monocrystals, polymer nanoparticles, LB-films, thin organic films, nanopowders, nanocomposites, nanoporous materials, fullerenes, nanotubes, nanofilaments, nanocapsules and performing AFM and STM lithography.",
+            "serial_number": "NTMDT -- Integra Vita",
+            "usage": 3,
+            "laboratory": null,
+            "department": 1,
+            "contact": 6,
+            "category": 8,
+            "faculty": 2,
+            "picture": "device_pictures/Atomic force microscope Integra.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 3,
+        "fields": {
+            "name": "CO2 sorption, AUTOSORB Anton Paar",
+            "description": "Surface area and porosity analyser on the base of adsorption/desorption isotherms (N2 sorption). BET and BJH analyses for surface area (BET) and porosity (BJH).",
+            "serial_number": null,
+            "usage": 15,
+            "laboratory": null,
+            "department": 1,
+            "contact": 11,
+            "category": 14,
+            "faculty": 2,
+            "picture": "device_pictures/CO2 sorption AUTOSORB Anton Paar.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 4,
+        "fields": {
+            "name": "Complete infrastructure for mammalian cell cultivation and related experiments",
+            "description": "Complete infrastructure for mammalian cell cultivation and related experiments",
+            "serial_number": null,
+            "usage": 4,
+            "laboratory": null,
+            "department": 2,
+            "contact": 5,
+            "category": 7,
+            "faculty": 2,
+            "picture": "device_pictures/Complete infrastructure for mammalian cell cultivation and related experiments.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 5,
+        "fields": {
+            "name": "Confocal microscope - LEICA CLSM SP8/DLS",
+            "description": "Fully motorized confocal laser scanning microscope SP8 from Leica enclosed in an environmental chamber allowing temperature, humidity and CO2 levels control around the sample. Equipped with a digital light sheet (DLS) module.",
+            "serial_number": null,
+            "usage": 18,
+            "laboratory": null,
+            "department": 1,
+            "contact": 6,
+            "category": 8,
+            "faculty": 2,
+            "picture": "device_pictures/Confocal microscope LEICA.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 6,
+        "fields": {
+            "name": "Electrokinetic analyser SurPASS",
+            "description": "Measurement of zeta potential of solid samples. Solid surfaces can be measured in the form of flat samples (polymer foils, glass, etc.) and powders or fibres (all size has to be higher than 25 micrometers).",
+            "serial_number": null,
+            "usage": 24,
+            "laboratory": null,
+            "department": 1,
+            "contact": 11,
+            "category": 6,
+            "faculty": 2,
+            "picture": "device_pictures/Electrokinetic analyser SurPASS.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 7,
+        "fields": {
+            "name": "Fluidized Bed Reactor",
+            "description": "Equipment for plasma treatment of powder materials",
+            "serial_number": null,
+            "usage": 19,
+            "laboratory": null,
+            "department": 5,
+            "contact": 7,
+            "category": 11,
+            "faculty": 2,
+            "picture": "device_pictures/Fluidized Bed Reactor.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 8,
+        "fields": {
+            "name": "GC-qMS Agilent",
+            "description": "Gas chromatograph Agilent 7980 with electron ionization and simple quadrupole detection (MS 5977E) equipped with autosampler CombiPAL for liquid, headspace and SPME sample introduction. Agilent MassHunter Workstation Software is used for data acquisition and analysis.",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 6,
+            "contact": 1,
+            "category": 2,
+            "faculty": 1,
+            "picture": "device_pictures/GC-qMS Agilent.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 9,
+        "fields": {
+            "name": "Goniometr",
+            "description": "Equipment serves for determination of surface wettability and wettability changes before and after surface modifications.",
+            "serial_number": null,
+            "usage": 22,
+            "laboratory": null,
+            "department": 1,
+            "contact": 11,
+            "category": 14,
+            "faculty": 2,
+            "picture": "device_pictures/Goniometr.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 10,
+        "fields": {
+            "name": "High Resolution Mass Spectrometer",
+            "description": "GC/LC-HRMS Bruker Compact enables qualitative and qualitative analyses for wide range of compounds due to the variable sample input and separation and ionization techniques. It is applicable for determination polar or nonpolar compounds like degradation or synthesis products, extracts of environmental samples, etc. with sufficient volatility or solubility.",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 6,
+            "contact": 1,
+            "category": 5,
+            "faculty": 1,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 11,
+        "fields": {
+            "name": "ICP-OES Optical Emission Spectrometer",
+            "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
+            "serial_number": null,
+            "usage_id": 21,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 5,
+            "faculty": 1,
+            "picture": "device_pictures/ICP-OES Optical Emission Spectrometer.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 12,
+        "fields": {
+            "name": "Ion Chromaatograph DIONEX",
+            "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 2,
+            "faculty": 1,
+            "picture": "device_pictures/Ion Chromaatograph DIONEX.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 13,
+        "fields": {
+            "name": "Laboratory of biosensors and microfluidics",
+            "description": "Complete infrastructure for the design, manufacturing and testing of biosensors and microfluidic devices for biomedical and environmental applications. Scanning electron microscope with electron lithography module , UV photolithographic instrument , magnetron sputtering device, microabrasive CNC lathe, reactive ion etching station , microfluidic liquid sample delivering system",
+            "serial_number": null,
+            "usage": 5,
+            "laboratory": null,
+            "department": 2,
+            "contact": 8,
+            "category": 7,
+            "faculty": 2,
+            "picture": "device_pictures/Laboratory of biosensors and microfluidics.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 14,
+        "fields": {
+            "name": "Laboratory of computational chemistry",
+            "description": "This laboratory is composed of two computer clusters for high performance computing. The newer cluster consists of 18 nodes &#34;DELL PowerEdge T640 Server&#34;, providing a great background especially for more demanding parallel computations. Each node is equipped with 2 Intel Xeon Gold 6240 processors and 192 GB (16 nodes) or 384 GB (2 nodes) RAM. In addition, 10 nodes are equipped with four GeForce RTX 2080 Ti graphics cards for GPU or GPU/CPU calculations. The older cluster consists of 9 older nodes &#34;Dell PowerEdge R720&#34; (2x Intel Xeon E5-2695 v3, 128 GB RAM) and two newer nodes &#34;TYAN - GPU Server FT48TB7105&#34; (2 x Intel Xeon Gold 6240, 192 GB RAM) which are moreover equipped also with 3 x GeForce RTX 2080 Ti for GPU accelerated calculations.",
+            "serial_number": null,
+            "usage": 9,
+            "laboratory": null,
+            "department": 5,
+            "contact": 4,
+            "category": 6,
+            "faculty": 2,
+            "picture": "device_pictures/Laboratory of computational chemistry.png"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 15,
+        "fields": {
+            "name": "Laboratory of nanofibrous materials",
+            "description": "Fabrication ofpolymeric nanofiber membranes with specific functions using needle spinning.",
+            "serial_number": null,
+            "usage": 12,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 12,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 16,
+        "fields": {
+            "name": "Laboratory of Nanotoxicology and Model Organisms",
+            "description": "Testing of toxicity and risk of nanomaterials",
+            "serial_number": null,
+            "usage": 23,
+            "laboratory": null,
+            "department": 1,
+            "contact": 6,
+            "category": 7,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 17,
+        "fields": {
+            "name": "Laboratory reactors",
+            "description": "Laboratory - scale reactors for preparing metal oxide-based sorbents and related materials by homogeneous hydrolysis, sol-gel process, precipitation/calcination and similar techniques. Equipment for their functional testing.",
+            "serial_number": null,
+            "usage": 17,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 4,
+            "faculty": 1,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 18,
+        "fields": {
+            "name": "Liquid Chromatograph",
+            "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 2,
+            "faculty": 1,
+            "picture": "device_pictures/Liquid Chromatograph.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 19,
+        "fields": {
+            "name": "Liquid chromatograph with diode-array detector Dionex",
+            "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 2,
+            "faculty": 1,
+            "picture": "device_pictures/Liquid chromatograph with diode-array detector Dionex.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 20,
+        "fields": {
+            "name": "Liquid chromatograph with MS detection",
+            "description": "Agilent 1290 Infinity UHPLC system consisting of an Agilent 1290 Infinity Binary Pump (G4220A), an Agilent 1290 Infinity High Performance Autosampler (G4226A), a sample cooler (G1330B), and an Agilent 1290 Infinity Thermostatted Column compartment (G1316C). The UHPLC system is coupled to an Agilent G6495 Triple Quadrupole LC/MS System equipped with an Agilent Jet Stream electrospray ionization source. Agilent MassHunter Workstation Software is used for data acquisition and analysis. Verified/validated methods are available for the determination trace residues of organic pollutants (e.g. pesticides).",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 2,
+            "faculty": 1,
+            "picture": "device_pictures/Liquid chromatograph with MS detection.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 21,
+        "fields": {
+            "name": "Microarray laser scanner",
+            "description": "Instrument dedicated for development of novel sensitive optical protein/DNA/whole cell microarray diagnostic devices (biosensors) for environmental or biomedical applications. It enable to perform a highly sensitive scanning of fluorescence signals located on micrometer-sized spots of fluorescently labeled molecules attached to active biosensor surface. Instrument is equipped with powerful software for fast analysis of acquired data from individual spots with 3 \u00b5m scan resolution. It represents automated solution to innovative microarray research, genomics, proteomics and diagnostics, and is essential equipment for life science and healthcare related basic and application research.",
+            "serial_number": null,
+            "usage": 6,
+            "laboratory": null,
+            "department": 2,
+            "contact": 6,
+            "category": 6,
+            "faculty": 2,
+            "picture": "device_pictures/Microarray laser scanner.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 22,
+        "fields": {
+            "name": "Microarray printer",
+            "description": "Microarrayer is the printing technology to produce diverse DNA, protein, reverse phase and whole cell microarray content in personal desktop designs. It represents automated solution to innovative microarray research, genomics, proteomics and diagnostics, and is essential equipment for life science and healthcare related basic and application research.",
+            "serial_number": null,
+            "usage": 20,
+            "laboratory": null,
+            "department": 1,
+            "contact": 6,
+            "category": 12,
+            "faculty": 2,
+            "picture": "device_pictures/Microarray printer.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 23,
+        "fields": {
+            "name": "Microplate spectrophotometer",
+            "description": "Universal 96-well microplate UV-VIS spectrophotometer with PathCheck technology for correction of sample volume variations.",
+            "serial_number": null,
+            "usage": 21,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 5,
+            "faculty": 1,
+            "picture": "device_pictures/Microplate spectrophotometer.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 24,
+        "fields": {
+            "name": "Potentiostat METHROHM",
+            "description": "Study of electrochemical and photo-electrochemical transformations, electrochemical properties of (nano)materials",
+            "serial_number": null,
+            "usage": 11,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 3,
+            "faculty": 1,
+            "picture": "device_pictures/Potentiostat METROHM.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 25,
+        "fields": {
+            "name": "Precise photo-reactor with optical bench",
+            "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
+            "serial_number": null,
+            "usage": 17,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 4,
+            "faculty": 1,
+            "picture": "device_pictures/Precise photo-reactor with optical bench.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 26,
+        "fields": {
+            "name": "Secondary Ion Mass Spectrometer SIMS",
+            "description": "Analytical equipment for surface analysis. Secondary Ion Mass Spectrometer equipped with two sources of ions. Cs ion gun and O2 ion gun (possible to switch to Ar)",
+            "serial_number": null,
+            "usage": 1,
+            "laboratory": null,
+            "department": 5,
+            "contact": 7,
+            "category": 13,
+            "faculty": 2,
+            "picture": "device_pictures/Secondary Ion Mass Spectrometer SIMS.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 27,
+        "fields": {
+            "name": "Spectrofluorometer FluorMax 4",
+            "description": "Spectrofluorometr dedicated for wide range of optical fluorescence measurements, including fluorescence polarization anisotropy analysis.",
+            "serial_number": null,
+            "usage": 17,
+            "laboratory": null,
+            "department": 2,
+            "contact": 5,
+            "category": 13,
+            "faculty": 2,
+            "picture": "device_pictures/Spectrofluorometer FluorMax 4.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 28,
+        "fields": {
+            "name": "Spectrophotometer Cary 50",
+            "description": "Development of new (nano)materials for liquid-phase adsorption removal of diverse pollutants from waters. Study of the sorption mechanisms and kinetics.",
+            "serial_number": null,
+            "usage": 21,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 5,
+            "faculty": 1,
+            "picture": "device_pictures/Spectrophotometer Cary 50.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 29,
+        "fields": {
+            "name": "Surface area and porosity analyser; determination of CO2 sorption, AUTOSORB, Anton Paar",
+            "description": "Instrument is able to determine the volume of adsorbed CO2 at temperature 0\u00b0C.",
+            "serial_number": null,
+            "usage": 7,
+            "laboratory": null,
+            "department": 1,
+            "contact": 11,
+            "category": 14,
+            "faculty": 2,
+            "picture": "device_pictures/Surface area and porosity analyser determination of CO2 sorption AUTOSORB Anton Paar.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 30,
+        "fields": {
+            "name": "Tester of Liquid Permeability of nanofibrous membranes",
+            "description": "Characterization of nanofiber polymeric membranes",
+            "serial_number": null,
+            "usage": 16,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 10,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 31,
+        "fields": {
+            "name": "Tester of mechanical strength of nanofiber membranes",
+            "description": "Characterization of nanofiber polymeric membranes - test of mechanical strength of polymer membranes",
+            "serial_number": null,
+            "usage": 16,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 10,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 32,
+        "fields": {
+            "name": "Tester of Membrane Air Permeability of nanofibrous membranes",
+            "description": "Characterization of nanofiber polymeric membranes",
+            "serial_number": null,
+            "usage": 16,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 10,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 33,
+        "fields": {
+            "name": "Two-Dimensional Gas Chromatograph *",
+            "description": "Gas Chromatograph (Agilent 7890) equipped with multimode inlet (split/splitless/LVI/PTV), GCxGC modulator ZOEX and coupled with flame ionization detector and mass spectrometry detector (Agilent 7250) quadrupole - time-of-flight (q-TOF). Deans Switch placed blind GCxGC modulator allows two-dimensional chromatography on FID or q-TOF.",
+            "serial_number": null,
+            "usage": 2,
+            "laboratory": null,
+            "department": 6,
+            "contact": 1,
+            "category": 2,
+            "faculty": 1,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 34,
+        "fields": {
+            "name": "Universal magnetron deposition system",
+            "description": "The magnetron deposition system with variable system up to 3 magnetron with 2in targets in diameter. Various power supplies are available RF, DC, RF pulsed, DC pulsed for sputtering of metals or metal oxides.  The deposition table can be heated up to about 200 oC or rotated. The RF bias can be induced on the substrate during the deposition and synchronized to target sputtering RF plasma.",
+            "serial_number": null,
+            "usage": 14,
+            "laboratory": null,
+            "department": 5,
+            "contact": 4,
+            "category": 11,
+            "faculty": 2,
+            "picture": "device_pictures/Universal magnetron deposition system.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 35,
+        "fields": {
+            "name": "UV/Vis spectrophotometer CINTRA with an integrating sphere",
+            "description": "Testing of the photo-degradation efficiency of nanocrystalline metal oxides and other (nano)materials",
+            "serial_number": null,
+            "usage": 21,
+            "laboratory": null,
+            "department": 3,
+            "contact": 10,
+            "category": 5,
+            "faculty": 1,
+            "picture": "device_pictures/UV Vis spectrophotometer CINTRA.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 36,
+        "fields": {
+            "name": "WDRF spectrometer Rigaku Primus IV",
+            "description": "Tube-above wavelength dispersive X-ray spectrometer for fast elemental analysis of powders, liquids and bulk materials in range F-U. This spectrometer is equipped with micromapping utility for analysis of defects and for mapping of chemical composition.",
+            "serial_number": null,
+            "usage": 8,
+            "laboratory": null,
+            "department": 5,
+            "contact": 9,
+            "category": 15,
+            "faculty": 2,
+            "picture": "device_pictures/WDRF spectrometer Rigaku Primus IV.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 37,
+        "fields": {
+            "name": "X-ray difractometer Panalytical X",
+            "description": "Universal XRD powder diffractometer, with Cu Kalpha x-ray tube. Measurements could be done in reflection and transmission mode. The device is equiped with smart detector, kolimator , G\u00f6bbel mirror and Euler stage.",
+            "serial_number": null,
+            "usage": 10,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 15,
+            "faculty": 2,
+            "picture": "device_pictures/X-ray difractometer Panalytical X.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 38,
+        "fields": {
+            "name": "X-ray powder diffractometer with optics for nanolayers and nanosurfaces",
+            "description": "X-ray diffractometer equipped with optics for structure analysis of polycrystalline thin films  and nanosurfaces.",
+            "serial_number": null,
+            "usage": 10,
+            "laboratory": null,
+            "department": 1,
+            "contact": 12,
+            "category": 15,
+            "faculty": 2,
+            "picture": null
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 39,
+        "fields": {
+            "name": "XPS/ESCA and Auger electron spectroscopy",
+            "description": "The instrument is an electron spectrometer SPECS with X-Ray source (Al, Mg) for XPS/ESCA analyses and also with electron source (50 eV - 3000 eV) for Auger electron spectroscopy.",
+            "serial_number": null,
+            "usage": 13,
+            "laboratory": null,
+            "department": 5,
+            "contact": 3,
+            "category": 13,
+            "faculty": 2,
+            "picture": "device_pictures/XPS ESCA and Auger electron spectroscopy.jpg"
+        }
+    },
+    {
+        "model": "client.device",
+        "pk": 40,
+        "fields": {
+            "name": "Zetasizer nano ZS",
+            "description": "Dynamic light scattering (DLS) is a non-invasive, well-established technique for measuring the size and size distribution of molecules and particles typically in the submicron region. Typical applications of dynamic light scattering are the characterization of particles, emulsions or molecules, which have been dispersed or dissolved in a liquid. The Brownian motion of particles or molecules in suspension causes laser light to be scattered at different intensities. Analysis of these intensity fluctuations yields the velocity of the Brownian motion and hence the particle size using the Stokes-Einstein relationship.",
+            "serial_number": null,
+            "usage": 17,
+            "laboratory": null,
+            "department": 2,
+            "contact": 5,
+            "category": 9,
+            "faculty": 2,
+            "picture": "device_pictures/Zetasizer nano ZS.jpg"
+        }
+    }
 ]

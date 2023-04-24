@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_USERNAME=facilities
+      - POSTGRESQL_PASSWORD=letmein
+      - POSTGRESQL_DATABASE=facilities
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+    ports:
+      - '127.0.0.1:5432:5432'
+
+volumes:
+  postgresql_data:
+    driver: local

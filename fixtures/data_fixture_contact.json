@@ -6,7 +6,7 @@
             "name": "Doc. Dr. Ing. Pavel Kuráň",
             "email": "pavel.kuran@ujep.cz",
             "phone": "+420 607 964 365",
-            "photo": "kuran_pavel.png"
+            "photo": "managers/kuran_pavel.png"
         } 
     },
     {
@@ -16,7 +16,7 @@
             "name": "Doc. Ing. Josef Trögl, Ph.D.",
             "email": "josef.trogl@ujep.cz",
             "phone": "+420 475 284 153",
-            "photo": "trogl_josef.png"
+            "photo": "managers/trogl_josef.png"
         } 
     },
     {
@@ -26,7 +26,7 @@
             "name": "Doc. Ing. Martin Kormunda, Ph.D.",
             "email": "martin.kormunda@ujep.cz",
             "phone": "+420 475 286 624",
-            "photo": "kormunda_martin.jpeg"
+            "photo": "managers/kormunda_martin.jpeg"
         } 
     },
     {
@@ -36,7 +36,7 @@
             "name": "Doc. RNDr. Marek Malý, Ph.D.",
             "email": "marek.maly@ujep.cz",
             "phone": "+420 475 286 651",
-            "photo": "maly_marek.jpeg"
+            "photo": "managers/maly_marek.jpeg"
         } 
     },
     {
@@ -55,7 +55,7 @@
             "name": "Mgr. Jan Malý, Ph.D.",
             "email": "jan.maly@ujep.cz",
             "phone": "+420 475 283 376",
-            "photo": "maly_jan.jpeg"
+            "photo": "managers/maly_jan.jpeg"
         } 
     },
     {
@@ -65,7 +65,7 @@
             "name": "Mgr. Jindřich Matoušek, Ph.D.",
             "email": "jindrich.matousek@ujep.cz",
             "phone": "+420 475 283 145",
-            "photo": "matousek_jindrich.jpeg"
+            "photo": "managers/matousek_jindrich.jpeg"
         } 
     },
     {
@@ -84,7 +84,7 @@
             "name": "Mgr. Petr Ryšánek",
             "email": "petr.rysanek@ujep.cz",
             "phone": "+420 475 286 644",
-            "photo": "rysanek_petr.jpeg"
+            "photo": "managers/rysanek_petr.jpeg"
         } 
     },
     {
@@ -94,7 +94,7 @@
             "name": "Prof. Ing. Pavel Janoš, CSc.",
             "email": "pavel.janos@ujep.cz",
             "phone": "+420 475 284 148",
-            "photo": "janos_pavel.png"
+            "photo": "managers/janos_pavel.png"
         } 
     },
     {
@@ -113,7 +113,7 @@
             "name": "Prof. RNDr. Pavla Čapková, DrSc.",
             "email": "pavla.capkova@ujep.cz",
             "phone": "+420 773 934 548",
-            "photo": "capkova_pavla.jpeg"
+            "photo": "managers/capkova_pavla.jpeg"
         } 
     }
 ]

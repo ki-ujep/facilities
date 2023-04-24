@@ -53,11 +53,7 @@ Contacts
         <div class="card-body row">
             <div class="col">
                 <a href="{% url 'contactdevices' contact_id=contact.id order='asc'%}" class="text-decoration-none">
-                {% if contact.photo %}
-                    <img class="card-img-top img-thumbnail" src="{% static 'img/managers/' %}{{contact.photo}}" alt="Card image" style="width: 10rem; height: 10rem;">
-                {% else %}
-                    <img class="card-img-top img-thumbnail" src="{% static 'img/managers/male.png' %}" alt="Card image" style="width: 10rem; height: 10rem;">
-                {% endif %}
+                <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image" style="width: 10rem; height: 10rem;">
                 </a>
             </div>
             <div class="col">
