@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 
@@ -46,33 +47,32 @@ class FacultyDevicesListView(ListView):
 def search_result(request):
     query = request.GET.get("query")
 
-    devices = Device.objects.filter(Q(name=query) | Q(serial_number=query))
-    
-    contacts = Contact.objects.filter(Q(name=query) | Q(email=query) | Q(phone=query))
-    devices = devices | Device.objects.filter(contact_id__in = contacts)
+    search_vector = SearchVector(
+        'name', 'serial_number',
+        'contact__name', 'contact__email', 'contact__phone',
+        'usage__academical_usage',
+        'laboratory__name', 'laboratory__adress',
+        'faculty__name',
+        'department__name',
+        'category__name'
+    )
 
-    usages = Usage.objects.filter(Q(academical_usage=query))
-    devices = devices | Device.objects.filter(usage_id__in = usages)
+    search_query = SearchQuery(query)
+    search_rank = SearchRank(search_vector, search_query)
 
-    laboratories = Laboratory.objects.filter(Q(name=query) | Q(adress=query))
-    devices = devices | Device.objects.filter(laboratory_id__in = laboratories)
+    devices = Device.objects.annotate(
+        search=search_vector,
+        rank=search_rank
+    ).filter(search=search_query).order_by('-rank')
 
-    faculties = Faculty.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(faculty_id__in = faculties)
+    print(devices)
 
-    departments = Department.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(department_id__in = departments)
-
-    categories = Category.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(category_id__in = categories)
-
-    faculty_name = query
-    
     context = {
         "faculty_devices": devices,
-        "faculty_name": faculty_name,
+        "faculty_name": query,
         "order": "disable"
     }
+
     return render(request, "facultydevices.html", context)
 
 class ContactDevicesListView(ListView):
