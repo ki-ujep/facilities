@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from django.contrib.postgres.search import TrigramWordDistance
+from django.db.models.functions import Least
 
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 
@@ -47,7 +48,7 @@ class FacultyDevicesListView(ListView):
 def search_result(request):
     query = request.GET.get("query")
 
-    search_vector = SearchVector(
+    search_fields = [
         'name', 'serial_number',
         'contact__name', 'contact__email', 'contact__phone',
         'usage__academical_usage',
@@ -55,17 +56,11 @@ def search_result(request):
         'faculty__name',
         'department__name',
         'category__name'
-    )
-
-    search_query = SearchQuery(query)
-    search_rank = SearchRank(search_vector, search_query)
+    ]
 
     devices = Device.objects.annotate(
-        search=search_vector,
-        rank=search_rank
-    ).filter(search=search_query).order_by('-rank')
-
-    print(devices)
+        distance = Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
+    ).order_by("distance")
 
     context = {
         "faculty_devices": devices,
