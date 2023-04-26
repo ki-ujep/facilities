@@ -76,13 +76,24 @@ class Contact(models.Model):
 # === Category ===
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Categories"
 
-    def __str__(self):
-        return f"{self.name}"
+    def walk(self, path=None):
+        """Returns list of parent categories in order from top parent 
+        (current object is last in the list)."""
+        if path is None:
+            path = []
+        if self.parent is not None:
+            self.parent.walk(path)
+        path.append(self)
+        return path
 
+    def __str__(self):
+        path = [cat.name for cat in self.walk()]
+        return ' -> '.join(path)
 
 # === Device ===
 class Device(models.Model):
