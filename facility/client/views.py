@@ -52,10 +52,10 @@ def search_result(request):
     devices = devices | Device.objects.filter(contact_id__in = contacts)
 
     usages = Usage.objects.filter(Q(academical_usage=query))
-    devices = devices | Device.objects.filter(usage_id__in = usages)
+    devices = devices | Device.objects.filter(usages__in=usages)
 
     laboratories = Laboratory.objects.filter(Q(name=query) | Q(adress=query))
-    devices = devices | Device.objects.filter(laboratory_id__in = laboratories)
+    devices = devices | Device.objects.filter(laboratory__in = laboratories)
 
     faculties = Faculty.objects.filter(Q(name=query))
     devices = devices | Device.objects.filter(faculty_id__in = faculties)
@@ -65,6 +65,9 @@ def search_result(request):
 
     categories = Category.objects.filter(Q(name=query))
     devices = devices | Device.objects.filter(category_id__in = categories)
+
+    # Fix device duplicates
+    devices = devices.distinct()
 
     faculty_name = query
     
