@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background: #888;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #555;
+}
+
 #logo img {
     max-height: 70px;
     max-width: 350px;
@@ -20,5 +33,27 @@ main {
 }
 
 .stripedlist > li:nth-of-type(odd) {
-    background-color: #e9e9f9 ;
+    background-color: #e9e9f9;
+}
+
+html {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+
+body {
+    height: 50%;
+}
+.footer {
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }

@@ -26,7 +26,7 @@
 <div class="card mt-5 container" style="max-width: 800px;">
     <div class="card-header">
 
-        <h3 class="card-title text-center ">{{ device.name }}</h5>
+        <h3 class="card-title text-center ">{{ device.name }}</h3>
 
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
             <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
