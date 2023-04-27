@@ -65,9 +65,11 @@ Faculty Devices
                 <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
             </form>
             
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{device.category.name}}">{{device.category.name}}</button>
-            </form>
+            {% for category in device.category.walk %}
+                <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                    <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{category.name}}">{{category.name}}</button>
+                </form>
+            {% endfor %}
             
             <form action="{% url 'search_result' %}" method="get" class="d-inline">
                 <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>

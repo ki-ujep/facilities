@@ -63,8 +63,20 @@ def search_result(request):
     departments = Department.objects.filter(Q(name=query))
     devices = devices | Device.objects.filter(department_id__in = departments)
 
+    # Recursively search categories
+    def get_descendants(category):
+        descendants = list(category.children.all())
+        for child in category.children.all():
+            descendants.extend(get_descendants(child))
+        return descendants
+
     categories = Category.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(category_id__in = categories)
+    descendant_categories = []
+    for category in categories:
+        descendant_categories.extend(get_descendants(category))
+
+    all_categories = list(categories) + descendant_categories
+    devices = devices | Device.objects.filter(category_id__in=all_categories)
 
     # Fix device duplicates
     devices = devices.distinct()
