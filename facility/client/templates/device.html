@@ -36,17 +36,21 @@
             <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
         </form>
         
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{device.category.name}}">{{device.category.name}}</button>
-        </form>
+        {% for category in device.category.walk %}
+            <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{category.name}}">{{category.name}}</button>
+            </form>
+        {% endfor %}
         
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
             <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
         </form>
     
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ device.usage.academical_usage }}">{{ device.usage.academical_usage }}</button>
-        </form>
+        {% for usage in device.usages.all %}
+            <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
+            </form>
+        {% endfor %}
 
     </div>
     <div class="card-body">
@@ -59,7 +63,10 @@
                 <span class="fw-bold">Serial Number:</span> {{device.serial_number}}
             </li>
             <li class="list-group-item">
-                <span class="fw-bold">Academical usage:</span> {{device.usage.academical_usage}}
+                <span class="fw-bold">Academical usages:</span>
+                {% for usage in device.usages.all %}
+                    <span class="badge bg-secondary rounded-pill">{{ usage.academical_usage }}</span>
+                {% endfor %}
             </li>
             <li class="list-group-item">
                 <span class="fw-bold">Contact name:</span> {{device.contact.name}}

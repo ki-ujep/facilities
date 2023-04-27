@@ -76,13 +76,24 @@ class Contact(models.Model):
 # === Category ===
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Categories"
 
-    def __str__(self):
-        return f"{self.name}"
+    def walk(self, path=None):
+        """Returns list of parent categories in order from top parent 
+        (current object is last in the list)."""
+        if path is None:
+            path = []
+        if self.parent is not None:
+            self.parent.walk(path)
+        path.append(self)
+        return path
 
+    def __str__(self):
+        path = [cat.name for cat in self.walk()]
+        return ' -> '.join(path)
 
 # === Device ===
 class Device(models.Model):
@@ -90,7 +101,7 @@ class Device(models.Model):
     picture = models.ImageField(upload_to="device_pictures/", max_length=255, null=True)
     description = models.CharField(max_length=1000)
     serial_number = models.CharField(max_length=255, null=True)
-    usage = models.ForeignKey(Usage, on_delete=models.SET_NULL, null=True)
+    usages = models.ManyToManyField(Usage)
     laboratory = models.ForeignKey(Laboratory, on_delete=models.SET_NULL, null=True)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
     contact = models.ForeignKey(Contact, on_delete=models.SET_NULL, null=True)
