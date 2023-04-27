@@ -1,322 +1,322 @@
 [
-  {
-    "model": "client.attachment",
-    "pk": 1,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/1/Attachments/Analyser%20of%20total%20and%20organic%20carbon.docx",
-      "device": 1
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 2,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/2/Attachments/Atomic%20force%20microscope%20Integra.docx",
-      "device": 2
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 3,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/3/Attachments/CO2%20sorption%20AUTOSORB%20Anton%20Paar.docx",
-      "device": 3
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 4,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/4/Attachments/Complete%20infrastructure%20for%20mammalian%20cell%20cultivation%20and%20related%20experiments.docx",
-      "device": 4
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 5,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/5/Attachments/Confocal%20microscope%20-%20LEICA%20CLSM%20SP8DLS.docx",
-      "device": 5
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 6,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/6/Attachments/Electrokinetic%20analyser%20SurPASS.docx",
-      "device": 6
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 7,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/7/Attachments/Fluidized%20Bed%20Reactor.docx",
-      "device": 7
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 8,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/8/Attachments/GC-qMS%20Agilent.docx",
-      "device": 8
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 9,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/9/Attachments/Goniometr.docx",
-      "device": 9
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 10,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/10/Attachments/High%20Resolution%20Mass%20Spectrometer.docx",
-      "device": 10
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 11,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/11/Attachments/ICP-OES%20Optical%20Emission%20Spectrometer.docx",
-      "device": 11
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 12,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/12/Attachments/Ion%20Chromaatograph%20DIONEX.docx",
-      "device": 12
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 13,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/13/Attachments/Laboratory%20of%20biosensors%20and%20microfluidics.docx",
-      "device": 13
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 14,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/14/Attachments/Laboratory%20of%20computational%20chemistry.docx",
-      "device": 14
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 15,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/15/Attachments/Laboratory%20of%20nanofibrous%20materials.docx",
-      "device": 15
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 16,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/16/Attachments/Microarray%20laser%20scanner.docx",
-      "device": 16
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 17,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/17/Attachments/Laboratory%20reactors.docx",
-      "device": 17
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 18,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/18/Attachments/Liquid%20Chromatograph.docx",
-      "device": 18
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 19,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/19/Attachments/Liquid%20chromatograph%20with%20diode-array%20detector%20Dionex.docx",
-      "device": 19
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 20,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/20/Attachments/Liquid%20chromatograph%20with%20MS%20detection.docx",
-      "device": 20
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 21,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/21/Attachments/Microarray%20laser%20scanner.docx",
-      "device": 21
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 22,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/22/Attachments/Microarray%20printer.docx",
-      "device": 22
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 23,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/23/Attachments/Microplate%20spectrophotometer.docx",
-      "device": 23
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 24,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/24/Attachments/Potentiostat%20METHROHM.docx",
-      "device": 24
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 25,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/25/Attachments/Precise%20photo-reactor%20with%20optical%20bench.docx",
-      "device": 25
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 26,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/26/Attachments/Secondary%20Ion%20Mass%20Spectrometer%20SIMS.docx",
-      "device": 26
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 27,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/27/Attachments/Spectrofluorometer%20FluorMax%204.docx",
-      "device": 27
-    } 
-  },  
-  {
-    "model": "client.attachment",
-    "pk": 28,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/28/Attachments/Spectrophotometer%20Cary%2050.docx",
-      "device": 28
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 29,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/29/Attachments/Surface%20area%20and%20porosity%20analyser.docx",
-      "device": 29
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 30,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/30/Attachments/Tester%20of%20Liquid%20Permeability%20of%20nanofibrous%20membranes.docx",
-      "device": 30
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 31,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/31/Attachments/Tester%20of%20mechanical%20strength%20of%20nanofiber%20membranes.docx",
-      "device": 31
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 32,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/32/Attachments/Tester%20of%20Membrane%20Air%20Permeability%20of%20nanofibrous%20membranes.docx",
-      "device": 32
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 33,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/33/Attachments/Two-Dimensional%20Gas%20Chromatograph.docx",
-      "device": 33
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 34,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/34/Attachments/Universal%20magnetron%20deposition%20system.docx",
-      "device": 34
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 35,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/35/Attachments/UVVis%20spectrophotometer%20CINTRA%20with%20an%20integrating%20sphere.docx",
-      "device": 35
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 36,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/36/Attachments/WDRF%20spectrometer%20Rigaku%20Primus%20IV.docx",
-      "device": 36
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 37,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/37/Attachments/X-ray%20difractometer%20Panalytical%20X.docx",
-      "device": 37
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 38,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/38/Attachments/X-ray%20powder%20diffractometer%20with%20optics%20for%20nanolayers%20and%20nanosurfaces.docx",
-      "device": 38
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 39,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/39/Attachments/XPS%20ESCA%20and%20Auger%20electron%20sspectroscopy.docx",
-      "device": 39
-    } 
-  },
-  {
-    "model": "client.attachment",
-    "pk": 40,
-    "fields":{
-      "path": "https://facility.ujep.cz/d/40/Attachments/Zetasizer%20nano%20ZS.docx",
-      "device": 40
-    } 
-  }   
+    {
+        "model": "client.attachment",
+        "pk": 1,
+        "fields": {
+            "device": 1,
+            "file": "attachments/Analyser of total and organic carbon.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 2,
+        "fields": {
+            "device": 2,
+            "file": "attachments/Atomic force microscope Integra.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 3,
+        "fields": {
+            "device": 3,
+            "file": "attachments/CO2 sorption AUTOSORB Anton Paar.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 4,
+        "fields": {
+            "device": 4,
+            "file": "attachments/Complete infrastructure for mammalian cell cultivation and related experiments.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 5,
+        "fields": {
+            "device": 5,
+            "file": "attachments/Confocal microscope - LEICA CLSM SP8DLS.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 6,
+        "fields": {
+            "device": 6,
+            "file": "attachments/Electrokinetic analyser SurPASS.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 7,
+        "fields": {
+            "device": 7,
+            "file": "attachments/Fluidized Bed Reactor.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 8,
+        "fields": {
+            "device": 8,
+            "file": "attachments/GC-qMS Agilent.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 9,
+        "fields": {
+            "device": 9,
+            "file": "attachments/Goniometr.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 10,
+        "fields": {
+            "device": 10,
+            "file": "attachments/High Resolution Mass Spectrometer.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 11,
+        "fields": {
+            "device": 11,
+            "file": "attachments/ICP-OES Optical Emission Spectrometer.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 12,
+        "fields": {
+            "device": 12,
+            "file": "attachments/Ion Chromaatograph DIONEX.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 13,
+        "fields": {
+            "device": 13,
+            "file": "attachments/Laboratory of biosensors and microfluidics.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 14,
+        "fields": {
+            "device": 14,
+            "file": "attachments/Laboratory of computational chemistry.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 15,
+        "fields": {
+            "device": 15,
+            "file": "attachments/Laboratory of nanofibrous materials.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 16,
+        "fields": {
+            "device": 16,
+            "file": "attachments/Microarray laser scanner.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 17,
+        "fields": {
+            "device": 17,
+            "file": "attachments/Laboratory reactors.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 18,
+        "fields": {
+            "device": 18,
+            "file": "attachments/Liquid Chromatograph.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 19,
+        "fields": {
+            "device": 19,
+            "file": "attachments/Liquid chromatograph with diode-array detector Dionex.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 20,
+        "fields": {
+            "device": 20,
+            "file": "attachments/Liquid chromatograph with MS detection.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 21,
+        "fields": {
+            "device": 21,
+            "file": "attachments/Microarray laser scanner.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 22,
+        "fields": {
+            "device": 22,
+            "file": "attachments/Microarray printer.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 23,
+        "fields": {
+            "device": 23,
+            "file": "attachments/Microplate spectrophotometer.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 24,
+        "fields": {
+            "device": 24,
+            "file": "attachments/Potentiostat METHROHM.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 25,
+        "fields": {
+            "device": 25,
+            "file": "attachments/Precise photo-reactor with optical bench.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 26,
+        "fields": {
+            "device": 26,
+            "file": "attachments/Secondary Ion Mass Spectrometer SIMS.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 27,
+        "fields": {
+            "device": 27,
+            "file": "attachments/Spectrofluorometer FluorMax 4.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 28,
+        "fields": {
+            "device": 28,
+            "file": "attachments/Spectrophotometer Cary 50.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 29,
+        "fields": {
+            "device": 29,
+            "file": "attachments/Surface area and porosity analyser.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 30,
+        "fields": {
+            "device": 30,
+            "file": "attachments/Tester of Liquid Permeability of nanofibrous membranes.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 31,
+        "fields": {
+            "device": 31,
+            "file": "attachments/Tester of mechanical strength of nanofiber membranes.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 32,
+        "fields": {
+            "device": 32,
+            "file": "attachments/Tester of Membrane Air Permeability of nanofibrous membranes.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 33,
+        "fields": {
+            "device": 33,
+            "file": "attachments/Two-Dimensional Gas Chromatograph.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 34,
+        "fields": {
+            "device": 34,
+            "file": "attachments/Universal magnetron deposition system.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 35,
+        "fields": {
+            "device": 35,
+            "file": "attachments/UVVis spectrophotometer CINTRA with an integrating sphere.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 36,
+        "fields": {
+            "device": 36,
+            "file": "attachments/WDRF spectrometer Rigaku Primus IV.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 37,
+        "fields": {
+            "device": 37,
+            "file": "attachments/X-ray difractometer Panalytical X.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 38,
+        "fields": {
+            "device": 38,
+            "file": "attachments/X-ray powder diffractometer with optics for nanolayers and nanosurfaces.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 39,
+        "fields": {
+            "device": 39,
+            "file": "attachments/XPS ESCA and Auger electron sspectroscopy.docx"
+        }
+    },
+    {
+        "model": "client.attachment",
+        "pk": 40,
+        "fields": {
+            "device": 40,
+            "file": "attachments/Zetasizer nano ZS.docx"
+        }
+    }
 ]

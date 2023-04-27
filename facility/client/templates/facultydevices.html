@@ -65,17 +65,21 @@ Faculty Devices
                 <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
             </form>
             
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{device.category.name}}">{{device.category.name}}</button>
-            </form>
+            {% for category in device.category.walk %}
+                <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                    <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{category.name}}">{{category.name}}</button>
+                </form>
+            {% endfor %}
             
             <form action="{% url 'search_result' %}" method="get" class="d-inline">
                 <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
             </form>
         
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ device.usage.academical_usage }}">{{ device.usage.academical_usage }}</button>
-            </form>
+            {% for usage in device.usages.all %}
+                <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                    <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
+                </form>
+            {% endfor %}
         </ul>
       </div>
     </li>
