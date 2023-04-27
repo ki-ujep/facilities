@@ -51,7 +51,7 @@ def search_result(request):
     search_fields = [
         'name', 'serial_number',
         'contact__name', 'contact__email', 'contact__phone',
-        'usage__academical_usage',
+        'usages__academical_usage',
         'laboratory__name', 'laboratory__adress',
         'faculty__name',
         'department__name',
