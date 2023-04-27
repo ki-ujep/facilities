@@ -90,7 +90,7 @@ class Device(models.Model):
     picture = models.ImageField(upload_to="device_pictures/", max_length=255, null=True)
     description = models.CharField(max_length=1000)
     serial_number = models.CharField(max_length=255, null=True)
-    usage = models.ForeignKey(Usage, on_delete=models.SET_NULL, null=True)
+    usages = models.ManyToManyField(Usage)
     laboratory = models.ForeignKey(Laboratory, on_delete=models.SET_NULL, null=True)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, null=True)
     contact = models.ForeignKey(Contact, on_delete=models.SET_NULL, null=True)
