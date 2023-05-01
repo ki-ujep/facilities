@@ -7,10 +7,10 @@
 
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
-            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'home' %}">Facility</a></li>
-            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'contacts' order='asc' %}">Contacts</a></li>
-            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'help' %}">Help</a></li>
-            <li class="nav-item text-uppercase ps-3 pe-3"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3 box"><a class="nav-link" href="{% url 'home' %}">Facility</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3 box"><a class="nav-link" href="{% url 'contacts' order='asc' %}">Contacts</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3 box"><a class="nav-link" href="{% url 'help' %}">Help</a></li>
+            <li class="nav-item text-uppercase ps-3 pe-3 box"><a class="nav-link" href="{% url 'about' %}">About</a></li>
         </ul>
 
         <form class="d-flex" action="{% url 'search_result' %}" method="get">

@@ -16,21 +16,12 @@
     max-width: 350px;
 }
 
-main {
-    margin-bottom: 100px;
-}
 
 #mainnav, footer {
     /* background-color: #e9e9f9 ; */
 }
 
-#mainnav li {
-    border-right: solid grey 2px;
-}
 
-#mainnav li:hover {
-    transform: scale(1.1);
-}
 
 .stripedlist > li:nth-of-type(odd) {
     background-color: #e9e9f9;
@@ -43,17 +34,34 @@ html {
 
 
 body {
-    height: 50%;
+    height: 45%;
 }
 .footer {
-    position: relative;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     margin-top: -150px; /* negative value of footer height */
     height: 150px;
     clear: both;
-    padding-top: 20px;
+    padding: 10px;
 }
 
 #main {
   overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
+  /* padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+@media only screen and (min-height: 900px){
+    body {
+        height: 60%;
+    }
+}
+
+.box {
+  transition: box-shadow .3s;
+
+}
+.box:hover {
+  box-shadow: 0 0 7px rgba(33,33,33,.2);
 }
