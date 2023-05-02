@@ -15,6 +15,8 @@ COPY ./facility /app
 
 RUN chown -R django:django /app
 
+RUN python manage.py collectstatic --noinput
+
 USER django
 
 EXPOSE 8000
