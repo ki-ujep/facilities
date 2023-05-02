@@ -21,13 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n#r$0*xo$=)%qzll+_#%xm9q))0ksvq^!257v)1j)#rqu1ao88'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-n#r$0*xo$=)%qzll+_#%xm9q))0ksvq^!257v)1j)#rqu1ao88")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_PRODUCTION", "False") == "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [host for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")]
 
+SESSION_COOKIE_SECURE = os.environ.get("DJANGO_PRODUCTION", "False") == "True"
+CSRF_COOKIE_SECURE = os.environ.get("DJANGO_PRODUCTION", "False") == "True"
 
 # Application definition
 
@@ -80,11 +82,11 @@ WSGI_APPLICATION = 'facility.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'facilities',
-        'USER': 'facilities',
-        'PASSWORD': 'letmein',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get("DJANGO_DB_NAME", "facilities"),
+        'USER': os.environ.get("DJANGO_DB_USER", "facilities"),
+        'PASSWORD': os.environ.get("DJANGO_DB_PASSWORD", "letmein"),
+        'HOST': os.environ.get("DJANGO_DB_HOST", "localhost"),
+        'PORT': os.environ.get("DJANGO_DB_PORT", "5432"),
     }
 }
 

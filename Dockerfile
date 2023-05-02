@@ -1,16 +1,23 @@
-#pull the official docker image
-FROM python:3.11.1-slim
+FROM python:3.9-alpine
 
-# set work directory
-WORKDIR /src
-
-# prevents Python from writing pyc files to disc and buffering stdout and stderr
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN mkdir /app
+WORKDIR /app
 
-# copy project
-COPY . .
+RUN addgroup -S django && adduser -S -G django -u 1000 django
+
+COPY ./requirements.txt /app/
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+COPY ./facility /app
+
+RUN chown -R django:django /app
+
+USER django
+
+EXPOSE 8000
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "facility.wsgi:application"]
+
