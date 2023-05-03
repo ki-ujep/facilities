@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     {% load bootstrap5 %}
+    {% load active_link_tags %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <meta charset="UTF-8">
@@ -21,13 +22,11 @@
     <link rel="icon" type="image/png" sizes="16x16"
           href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-16x16.png"/>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 {% include "partials/header.html" %}
 {% include "partials/nav.html" %}
-<main class="wrap" style="min-height: 100%">
-    <div id="main" class="container clear-top mt-5" style="overflow: auto;padding-bottom: 50px">
-        {% block main %}{% endblock %}
-    </div>
+<main role="main" class="container clear-top mt-5 flex-shrink-0" id="main">
+    {% block main %}{% endblock %}
 </main>
 {% include "partials/footer.html" %}
 </body>
