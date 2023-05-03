@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
+{% endblock %}
+
 {% block title %}
 {{ device.name }}
 {% endblock %}
@@ -26,7 +32,7 @@
 <div class="card mt-5 container" style="max-width: 800px;">
     <div class="card-header">
 
-        <h3 class="card-title text-center ">{{ device.name }}</h5>
+        <h3 class="card-title text-center ">{{ device.name }}</h3>
 
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
             <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
@@ -38,8 +44,14 @@
         
         {% for category in device.category.walk %}
             <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill" type="submit" name="query" value="{{category.name}}">{{category.name}}</button>
+                <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
+                        type="submit"
+                        name="query" value="{{ category.name }}">{{ category.name }}
+                </button>
             </form>
+            {% if not forloop.last %}
+                <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
+            {% endif %}
         {% endfor %}
         
         <form action="{% url 'search_result' %}" method="get" class="d-inline">

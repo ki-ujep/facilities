@@ -3,25 +3,32 @@
 <head>
     {% load static %}
     {% load bootstrap5 %}
+    {% load active_link_tags %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/png" sizes="192x192" href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="270x270" href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-270x270.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="96x96"
+          href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="270x270"
+          href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-270x270.png"/>
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="https://www.ujep.cz/wp-content/themes/ujep/img-ujep/favicon-16x16.png"/>
 </head>
-<body>
-    {% include "partials/header.html" %}
-    {% include "partials/nav.html" %}
-    <main class="mt-5 ms-5 me-5">
-        {% block main %}{% endblock %}
-    </main>
-    {% include "partials/footer.html" %}
+<body class="d-flex flex-column h-100">
+{% include "partials/header.html" %}
+{% include "partials/nav.html" %}
+<main role="main" class="container clear-top mt-5 flex-shrink-0" id="main">
+    {% block main %}{% endblock %}
+</main>
+{% include "partials/footer.html" %}
 </body>
 </html>
