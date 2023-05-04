@@ -97,16 +97,19 @@ def search_result(request):
 
     devices = Device.objects.filter(id__in=all_ids)
 
+    found_message = "Found " + str(devices.count()) + " records."
+
     # If no results found, fall back on TrigramWordDistance
     if not devices.exists():
-        print("No results found, falling back on TrigramWordDistance")
         devices = Device.objects.annotate(
             distance=Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
-        ).order_by("distance")
+        ).order_by("distance")[:10]
+        found_message = "Showing 10 closest matches."
 
     context = {
         "faculty_devices": devices,
         "faculty_name": query,
+        "found_message": found_message,
         "order": "disable"
     }
 
