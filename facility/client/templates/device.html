@@ -81,7 +81,7 @@
                 {% endfor %}
             </li>
             <li class="list-group-item">
-                <span class="fw-bold">Contact name:</span> {{device.contact.name}}
+                <span class="fw-bold">Contact name:</span> <a href="{% url 'contactdevices' contact_id=device.contact.id order='asc' %}">{{device.contact.name}}</a>
             </li>
             <li class="list-group-item">
                 <span class="fw-bold">Contact email:</span> {{device.contact.email}}
