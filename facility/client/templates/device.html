@@ -39,7 +39,7 @@
         </form>
         
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
+            <button class="btn btn-primary badge bg-department rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
         </form>
         
         {% for category in device.category.walk %}
