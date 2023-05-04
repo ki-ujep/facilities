@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  webapp:
+    image: 'ki-ujep/facilities:latest'
+    depends_on:
+      - postgresql
+    environment:
+      - DJANGO_PRODUCTION=True
+      - DJANGO_SECRET_KEY="SECRET KEY"
+      - DJANGO_DB_NAME=facilities
+      - DJANGO_DB_USER=facilities
+      - DJANGO_DB_PASSWORD=letmein
+      - DJANGO_DB_HOST=postgresql
+      - DJANGO_DB_PORT=5432
+    ports:
+      - '127.0.0.1:8000:8000'
+    volumes:
+      - "./media:/app/media"
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_USERNAME=facilities
+      - POSTGRESQL_PASSWORD=letmein
+      - POSTGRESQL_DATABASE=facilities
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+
+volumes:
+  postgresql_data:
+    driver: local
+
