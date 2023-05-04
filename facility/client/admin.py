@@ -1,9 +1,13 @@
 from django.contrib import admin
 from .models import Device, Usage, Laboratory, Faculty, Department, Contact, Category, Attachment
 
+class AttachmentInline(admin.TabularInline):
+    model = Attachment
+    extra = 1
 
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ("name", "serial_number", "laboratory", "department", "contact")
+    inlines = [AttachmentInline]
 
 
 class LaboratoryAdmin(admin.ModelAdmin):

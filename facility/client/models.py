@@ -115,7 +115,8 @@ class Device(models.Model):
 # === Attachment ===
 class Attachment(models.Model):
     file = models.FileField(upload_to="attachments/", max_length=255, null=True)
-    device = models.ForeignKey(Device, on_delete=models.SET_NULL, null=True)
+    device = models.ForeignKey(Device, on_delete=models.SET_NULL, null=True,
+                               related_name="attachments")
 
     def __str__(self):
         return f"{self.file.name}"
