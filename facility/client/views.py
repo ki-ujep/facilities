@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+from django.db.models import Q, Value
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.contrib.postgres.search import TrigramWordDistance
+from django.contrib.postgres.search import TrigramWordDistance, SearchVector, SearchQuery, SearchRank
 from django.db.models.functions import Least
+from django.db import connection
 
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 
@@ -44,6 +45,23 @@ class FacultyDevicesListView(ListView):
         context["faculty_id"] = faculty.id
         context["order"] = order
         return context
+    
+def get_category_ids(query):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            WITH RECURSIVE search_categories AS (
+                SELECT id, name, parent_id
+                FROM client_category
+                WHERE name LIKE %s
+                UNION ALL
+                SELECT c.id, c.name, c.parent_id
+                FROM client_category c
+                INNER JOIN search_categories sc ON c.parent_id = sc.id
+            )
+            SELECT id FROM search_categories
+        """, ["%" + query + "%"])
+        rows = cursor.fetchall()
+    return [row[0] for row in rows]
 
 def search_result(request):
     query = request.GET.get("query")
@@ -55,12 +73,36 @@ def search_result(request):
         'laboratory__name', 'laboratory__adress',
         'faculty__name',
         'department__name',
-        'category__name'
+        'category__name',
+        'category__parent__name'
     ]
 
-    devices = Device.objects.annotate(
-        distance = Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
-    ).order_by("distance")
+    vector = SearchVector(*search_fields)
+
+    search_query = SearchQuery(query)
+
+    category_ids = get_category_ids(query)
+
+    rank_based_ids = Device.objects.annotate(
+        search=vector
+    ).filter(
+        search=search_query
+    ).annotate(
+        rank=SearchRank(vector, search_query)
+    ).order_by('-rank').values_list('id', flat=True)
+
+    category_based_ids = Device.objects.filter(category__id__in=category_ids).values_list('id', flat=True)
+
+    all_ids = set(list(rank_based_ids) + list(category_based_ids))
+
+    devices = Device.objects.filter(id__in=all_ids)
+
+    # If no results found, fall back on TrigramWordDistance
+    if not devices.exists():
+        print("No results found, falling back on TrigramWordDistance")
+        devices = Device.objects.annotate(
+            distance=Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
+        ).order_by("distance")
 
     context = {
         "faculty_devices": devices,
