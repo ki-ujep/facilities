@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('client', '0019_category_parent'),
+        ('client', '0020_enable_trigram_extension'),
     ]
 
     operations = [
