@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+from django.db.models import Q, Value
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.contrib.postgres.search import TrigramWordDistance, SearchVector, SearchQuery, SearchRank
+from django.db.models.functions import Least
+from django.db import connection
 
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 
@@ -42,52 +45,74 @@ class FacultyDevicesListView(ListView):
         context["faculty_id"] = faculty.id
         context["order"] = order
         return context
+    
+def get_category_ids(query):
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            WITH RECURSIVE search_categories AS (
+                SELECT id, name, parent_id
+                FROM client_category
+                WHERE name LIKE %s
+                UNION ALL
+                SELECT c.id, c.name, c.parent_id
+                FROM client_category c
+                INNER JOIN search_categories sc ON c.parent_id = sc.id
+            )
+            SELECT id FROM search_categories
+        """, ["%" + query + "%"])
+        rows = cursor.fetchall()
+    return [row[0] for row in rows]
 
 def search_result(request):
     query = request.GET.get("query")
 
-    devices = Device.objects.filter(Q(name=query) | Q(serial_number=query))
-    
-    contacts = Contact.objects.filter(Q(name=query) | Q(email=query) | Q(phone=query))
-    devices = devices | Device.objects.filter(contact_id__in = contacts)
+    search_fields = [
+        'name', 'serial_number',
+        'contact__name', 'contact__email', 'contact__phone',
+        'usages__academical_usage',
+        'laboratory__name', 'laboratory__adress',
+        'faculty__name',
+        'department__name',
+        'category__name',
+        'category__parent__name'
+    ]
 
-    usages = Usage.objects.filter(Q(academical_usage=query))
-    devices = devices | Device.objects.filter(usages__in=usages)
+    vector = SearchVector(*search_fields)
 
-    laboratories = Laboratory.objects.filter(Q(name=query) | Q(adress=query))
-    devices = devices | Device.objects.filter(laboratory__in = laboratories)
+    search_query = SearchQuery(query)
 
-    faculties = Faculty.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(faculty_id__in = faculties)
+    category_ids = get_category_ids(query)
 
-    departments = Department.objects.filter(Q(name=query))
-    devices = devices | Device.objects.filter(department_id__in = departments)
+    rank_based_ids = Device.objects.annotate(
+        search=vector
+    ).filter(
+        search=search_query
+    ).annotate(
+        rank=SearchRank(vector, search_query)
+    ).order_by('-rank').values_list('id', flat=True)
 
-    # Recursively search categories
-    def get_descendants(category):
-        descendants = list(category.children.all())
-        for child in category.children.all():
-            descendants.extend(get_descendants(child))
-        return descendants
+    category_based_ids = Device.objects.filter(category__id__in=category_ids).values_list('id', flat=True)
 
-    categories = Category.objects.filter(Q(name=query))
-    descendant_categories = []
-    for category in categories:
-        descendant_categories.extend(get_descendants(category))
+    all_ids = set(list(rank_based_ids) + list(category_based_ids))
 
-    all_categories = list(categories) + descendant_categories
-    devices = devices | Device.objects.filter(category_id__in=all_categories)
+    devices = Device.objects.filter(id__in=all_ids)
 
-    # Fix device duplicates
-    devices = devices.distinct()
+    found_message = "Found " + str(devices.count()) + " records."
 
-    faculty_name = query
-    
+    # If no results found, fall back on TrigramWordDistance
+    if not devices.exists():
+        devices = Device.objects.annotate(
+            distance=Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
+        ).order_by("distance")[:10]
+        found_message = "Showing 10 closest matches."
+
     context = {
         "faculty_devices": devices,
-        "faculty_name": faculty_name,
+        "faculty_name": query,
+        "found_message": found_message,
         "order": "disable"
     }
+
     return render(request, "facultydevices.html", context)
 
 class ContactDevicesListView(ListView):
