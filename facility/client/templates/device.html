@@ -89,6 +89,11 @@
             <li class="list-group-item">
                 <span class="fw-bold">Contact phone:</span> {{device.contact.phone}}
             </li>
+            <li class="list-group-item">
+                <span class="fw-bold">Attachments:</span>
+                {% for attachment in device.attachments.all %}
+                    <a href="{{ attachment.file.url }}" class="badge bg-dark rounded-pill">{{ attachment.file.name }}</a>
+                {% endfor %}
         </ul>
         
     </div>
