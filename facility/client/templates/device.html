@@ -39,7 +39,7 @@
         </form>
         
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-primary rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
+            <button class="btn btn-primary badge bg-department rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
         </form>
         
         {% for category in device.category.walk %}
@@ -81,7 +81,7 @@
                 {% endfor %}
             </li>
             <li class="list-group-item">
-                <span class="fw-bold">Contact name:</span> {{device.contact.name}}
+                <span class="fw-bold">Contact name:</span> <a href="{% url 'contactdevices' contact_id=device.contact.id order='asc' %}">{{device.contact.name}}</a>
             </li>
             <li class="list-group-item">
                 <span class="fw-bold">Contact email:</span> {{device.contact.email}}
