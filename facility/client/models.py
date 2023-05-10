@@ -44,6 +44,8 @@ class Laboratory(models.Model):
 # === Faculty ===
 class Faculty(models.Model):
     name = models.CharField(max_length=255)
+    logo_en = models.ImageField(upload_to="faculties_logo/", max_length=255, null=True)
+    active = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = "Faculties"

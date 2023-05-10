@@ -3,14 +3,72 @@
         "model": "client.faculty",
         "pk": 1,
         "fields":{
-            "name": "Faculty of Environment"
+            "name": "Faculty of Environment",
+            "logo_en": "faculties_logo/fzp_logo_en.jpg",
+            "active": true
         } 
     },
     {
         "model": "client.faculty",
         "pk": 2,
         "fields":{
-            "name": "Faculty of Science"
+            "name": "Faculty of Science",
+            "logo_en": "faculties_logo/prf_logo_en.jpg",
+            "active": true
         } 
+    },
+    {
+        "model": "client.faculty",
+        "pk": 3,
+        "fields":{
+            "name": "Faculty of Arts",
+            "logo_en": "faculties_logo/ff_logo_en.jpg",
+            "active": false
+        }
+    },
+    {
+        "model": "client.faculty",
+        "pk": 4,
+        "fields":{
+            "name": "Faculty of Social and Economic Studies",
+            "logo_en": "faculties_logo/fse_logo_en.jpg",
+            "active": false
+        }
+    },
+    {
+        "model": "client.faculty",
+        "pk": 4,
+        "fields":{
+            "name": "Faculty of Mechanical Engineering",
+            "logo_en": "faculties_logo/fsi_logo_en.jpg",
+            "active": false
+        }
+    },
+    {
+        "model": "client.faculty",
+        "pk": 5,
+        "fields":{
+            "name": "Faculty of Art and Design",
+            "logo_en": "faculties_logo/fud_logo_en.jpg",
+            "active": false
+        }
+    },
+    {
+        "model": "client.faculty",
+        "pk": 6,
+        "fields":{
+            "name": "Faculty of Education",
+            "logo_en": "faculties_logo/pf_logo_en.jpg",
+            "active": false
+        }
+    },
+    {
+        "model": "client.faculty",
+        "pk": 7,
+        "fields":{
+            "name": "Faculty of Health Studies",
+            "logo_en": "faculties_logo/fzs_logo_en.jpg",
+            "active": false
+        }
     }
 ]    
