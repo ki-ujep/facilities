@@ -92,7 +92,7 @@
             <li class="list-group-item">
                 <span class="fw-bold">Attachments:</span>
                 {% for attachment in device.attachments.all %}
-                    <a href="{{ attachment.file.url }}" class="badge bg-dark rounded-pill">{{ attachment.file.name }}</a>
+                    <a href="{{ attachment.file.url }}" class="rounded-pill" style="color: #0d6efd">{{ attachment.file.name }}</a>
                 {% endfor %}
         </ul>
         
