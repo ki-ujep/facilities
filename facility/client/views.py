@@ -103,8 +103,9 @@ def search_result(request):
         ).order_by("distance").exclude(id__in=all_ids)[:10 - len(devices)]
         # Filter by distance
         trigram_devices = [device for device in trigram_devices if device.distance < 0.5]
-        found_message = f"Found {len(devices)} records. Showing {len(trigram_devices)} closest matches."
-        devices = list(devices) + trigram_devices
+        if trigram_devices:
+            found_message = f"Found {len(devices)} records. Showing {len(trigram_devices)} closest matches."
+            devices = list(devices) + trigram_devices
 
 
 
