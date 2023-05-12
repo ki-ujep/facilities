@@ -4,7 +4,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.contrib.postgres.search import TrigramWordDistance, SearchVector, SearchQuery, SearchRank
 from django.db.models.functions import Least
-from django.db import connection
 
 from .models import Faculty, Contact, Device, Usage, Laboratory, Department, Category
 
@@ -45,23 +44,16 @@ class FacultyDevicesListView(ListView):
         context["faculty_id"] = faculty.id
         context["order"] = order
         return context
-    
+
 def get_category_ids(query):
-    with connection.cursor() as cursor:
-        cursor.execute("""
-            WITH RECURSIVE search_categories AS (
-                SELECT id, name, parent_id
-                FROM client_category
-                WHERE name LIKE %s
-                UNION ALL
-                SELECT c.id, c.name, c.parent_id
-                FROM client_category c
-                INNER JOIN search_categories sc ON c.parent_id = sc.id
-            )
-            SELECT id FROM search_categories
-        """, ["%" + query + "%"])
-        rows = cursor.fetchall()
-    return [row[0] for row in rows]
+    categories = Category.objects.filter(name__icontains=query)
+    category_ids = []
+    for category in categories:
+        for node in category.walk_down():
+            if node.id in category_ids:
+                continue
+            category_ids.append(node.id)
+    return category_ids
 
 def search_result(request):
     query = request.GET.get("query")
@@ -105,6 +97,17 @@ def search_result(request):
             distance=Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
         ).order_by("distance")[:10]
         found_message = "Showing 10 closest matches."
+    elif len(devices) < 10:
+        trigram_devices = Device.objects.annotate(
+            distance=Least(*[TrigramWordDistance(query, field_name) for field_name in search_fields])
+        ).order_by("distance").exclude(id__in=all_ids)[:10 - len(devices)]
+        # Filter by distance
+        trigram_devices = [device for device in trigram_devices if device.distance < 0.5]
+        if trigram_devices:
+            found_message = f"Found {len(devices)} records. Showing {len(trigram_devices)} closest matches."
+            devices = list(devices) + trigram_devices
+
+
 
     context = {
         "faculty_devices": devices,

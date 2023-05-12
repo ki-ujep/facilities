@@ -93,6 +93,18 @@ class Category(models.Model):
         path.append(self)
         return path
 
+    def walk_down(self, path=None):
+        """Returns list of child categories in order from top parent 
+        (current object is first in the list)."""
+        if path is None:
+            path = []
+        path.append(self)
+        children = Category.objects.filter(parent=self)
+        if children is not None:
+            for child in children.all():
+                child.walk_down(path)
+        return path
+
     def __str__(self):
         path = [cat.name for cat in self.walk()]
         return ' -> '.join(path)
