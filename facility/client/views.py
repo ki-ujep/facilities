@@ -136,6 +136,8 @@ class ContactDevicesListView(ListView):
         contact = get_object_or_404(Contact, id=contact_id)
         context["contact_name"] = contact.name
         context["contact_id"] = contact.id
+        context["contact_titles"] = contact.titles
+        context["contact_titles_after"] = contact.titles_after
         context["order"] = order
         return context
 
