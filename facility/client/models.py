@@ -66,6 +66,8 @@ class Department(models.Model):
 # === Contact ===
 class Contact(models.Model):
     name = models.CharField(max_length=255)
+    titles = models.CharField(max_length=255, null=True, blank=True, default=None)
+    titles_after = models.CharField(max_length=255, null=True, blank=True, default=None)
     email = models.EmailField()
     phone = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='managers/', max_length=255, blank=True,

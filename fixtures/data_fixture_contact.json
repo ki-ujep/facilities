@@ -3,7 +3,8 @@
         "model": "client.contact",
         "pk": 1,
         "fields":{
-            "name": "Doc. Dr. Ing. Pavel Kuráň",
+            "titles": "Doc. Dr. Ing.",
+            "name": "Pavel Kuráň",
             "email": "pavel.kuran@ujep.cz",
             "phone": "+420 607 964 365",
             "photo": "managers/kuran_pavel.png"
@@ -13,7 +14,9 @@
         "model": "client.contact",
         "pk": 2,
         "fields":{
-            "name": "Doc. Ing. Josef Trögl, Ph.D.",
+            "name": "Josef Trögl",
+            "titles": "Doc. Ing.",
+            "titles_after": "Ph.D.",
             "email": "josef.trogl@ujep.cz",
             "phone": "+420 475 284 153",
             "photo": "managers/trogl_josef.png"
@@ -23,7 +26,9 @@
         "model": "client.contact",
         "pk": 3,
         "fields":{
-            "name": "Doc. Ing. Martin Kormunda, Ph.D.",
+            "name": "Martin Kormunda",
+            "titles": "Doc. Ing.",
+            "titles_after": "Ph.D.",
             "email": "martin.kormunda@ujep.cz",
             "phone": "+420 475 286 624",
             "photo": "managers/kormunda_martin.jpeg"
@@ -33,7 +38,9 @@
         "model": "client.contact",
         "pk": 4,
         "fields":{
-            "name": "Doc. RNDr. Marek Malý, Ph.D.",
+            "name": "Marek Malý",
+            "titles": "Doc. RNDr.",
+            "titles_after": "Ph.D.",
             "email": "marek.maly@ujep.cz",
             "phone": "+420 475 286 651",
             "photo": "managers/maly_marek.jpeg"
@@ -43,7 +50,8 @@
         "model": "client.contact",
         "pk": 5,
         "fields":{
-            "name": "Dr. Dominika Wróbel",
+            "name": "Dominika Wróbel",
+            "titles": "Mgr.",
             "email": "dominika_wrobel@o2.pl",
             "phone": "+420 475 283 376"
         } 
@@ -52,7 +60,9 @@
         "model": "client.contact",
         "pk": 6,
         "fields":{
-            "name": "Mgr. Jan Malý, Ph.D.",
+            "name": "Jan Malý",
+            "titles": "Mgr.",
+            "titles_after": "Ph.D.",
             "email": "jan.maly@ujep.cz",
             "phone": "+420 475 283 376",
             "photo": "managers/maly_jan.jpeg"
@@ -62,7 +72,9 @@
         "model": "client.contact",
         "pk": 7,
         "fields":{
-            "name": "Mgr. Jindřich Matoušek, Ph.D.",
+            "name": "Jindřich Matoušek",
+            "titles": "Mgr.",
+            "titles_after": "Ph.D.",
             "email": "jindrich.matousek@ujep.cz",
             "phone": "+420 475 283 145",
             "photo": "managers/matousek_jindrich.jpeg"
@@ -72,7 +84,9 @@
         "model": "client.contact",
         "pk": 8,
         "fields":{
-            "name": "Mgr. Marcel Štofik, Ph.D.",
+            "name": "Marcel Štofik",
+            "titles": "Mgr.",
+            "titles_after": "Ph.D.",
             "email": "marcel.stofik@ujep.cz",
             "phone": "+420 475 283 376"
         } 
@@ -81,7 +95,8 @@
         "model": "client.contact",
         "pk": 9,
         "fields":{
-            "name": "Mgr. Petr Ryšánek",
+            "name": "Petr Ryšánek",
+            "titles": "Mgr.",
             "email": "petr.rysanek@ujep.cz",
             "phone": "+420 475 286 644",
             "photo": "managers/rysanek_petr.jpeg"
@@ -91,7 +106,9 @@
         "model": "client.contact",
         "pk": 10,
         "fields":{
-            "name": "Prof. Ing. Pavel Janoš, CSc.",
+            "name": "Pavel Janoš",
+            "titles": "Prof. Ing.",
+            "titles_after": "CSc.",
             "email": "pavel.janos@ujep.cz",
             "phone": "+420 475 284 148",
             "photo": "managers/janos_pavel.png"
@@ -101,7 +118,9 @@
         "model": "client.contact",
         "pk": 11,
         "fields":{
-            "name": "Prof. Ing. Zdeňka Kolská, Ph.D.",
+            "name": "Zdeňka Kolská",
+            "titles": "Prof. Ing.",
+            "titles_after": "Ph.D.",
             "email": "zdenka.kolska@ujep.cz",
             "phone": "+420 475 283 144"
         } 
@@ -110,7 +129,9 @@
         "model": "client.contact",
         "pk": 12,
         "fields":{
-            "name": "Prof. RNDr. Pavla Čapková, DrSc.",
+            "name": "Pavla Čapková",
+            "titles": "Prof. RNDr.",
+            "titles_after": "DrSc.",
             "email": "pavla.capkova@ujep.cz",
             "phone": "+420 773 934 548",
             "photo": "managers/capkova_pavla.jpeg"
