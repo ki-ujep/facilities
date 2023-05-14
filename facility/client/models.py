@@ -114,7 +114,6 @@ class Category(models.Model):
 # === Device ===
 class Device(models.Model):
     name = models.CharField(max_length=255)
-    picture = models.ImageField(upload_to="device_pictures/", max_length=255, null=True)
     description = models.CharField(max_length=1000)
     serial_number = models.CharField(max_length=255, null=True)
     usages = models.ManyToManyField(Usage)
@@ -136,3 +135,11 @@ class Attachment(models.Model):
 
     def __str__(self):
         return f"{self.file.name}"
+    
+class DevicePicture(models.Model):
+    device = models.ForeignKey(Device, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="device_pictures/", max_length=255)
+
+    def __str__(self):
+        return f"{self.device.name} - {self.image.name}"
+
