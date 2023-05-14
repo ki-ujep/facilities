@@ -19,7 +19,7 @@
     max-width: 350px;
 }
 
-.stripedlist > li:nth-of-type(odd) {
+.stripedlist>li:nth-of-type(odd) {
     background-color: #e9e9f9;
 }
 
@@ -28,8 +28,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-}
+body {}
 
 #main {
     overflow: auto;
@@ -54,7 +53,7 @@ body {
 }
 
 .faculty:hover {
-    box-shadow: 0 0 7px rgba(33, 33, 33, .2);;
+    box-shadow: 0 0 7px rgba(33, 33, 33, .2);
 }
 
 .active_nav {

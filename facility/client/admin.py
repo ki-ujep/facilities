@@ -11,7 +11,7 @@ class DevicePictureInline(admin.TabularInline):
 
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ("name", "serial_number", "laboratory", "department", "contact")
-    inlines = [AttachmentInline, DevicePictureInline]
+    inlines = [DevicePictureInline, AttachmentInline]
 
 class LaboratoryAdmin(admin.ModelAdmin):
     list_display = ("name", "adress")
