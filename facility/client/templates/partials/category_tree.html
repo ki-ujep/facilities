@@ -1,0 +1,26 @@
+{# recursive Django category tree #}
+<ul>
+    <li>
+        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+            <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
+                    type="submit"
+                    name="query" value="{{ category.name }}">{{ category.name }}
+            </button>
+        </form>
+        {# render devices #}
+        <ul>
+            {% for device in category.device_set.all %}
+                <li>
+                    {{ device.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% if category.children %}
+        <ul>
+        {% for child in category.children.all %}
+            {% include "partials/category_tree.html" with category=child %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+</ul>

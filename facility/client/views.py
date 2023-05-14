@@ -30,6 +30,7 @@ class FacultyDevicesListView(ListView):
         faculty_id = self.kwargs.get("faculty_id")
         order = self.kwargs.get("order")
         faculty = get_object_or_404(Faculty, id=faculty_id)
+
         if order == "asc":
             return Device.objects.filter(faculty=faculty).order_by("name", "department")
         else:
@@ -37,12 +38,20 @@ class FacultyDevicesListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         faculty_id = self.kwargs.get("faculty_id")
         order = self.kwargs.get("order")
+
         faculty = get_object_or_404(Faculty, id=faculty_id)
+
+        # get all distinct categories without parent
+        categories = Category.objects.filter(device__faculty=faculty, parent__isnull=True).distinct()
+
         context["faculty_name"] = faculty.name
         context["faculty_id"] = faculty.id
         context["order"] = order
+        context["categories"] = categories
+
         return context
 
 def get_category_ids(query):

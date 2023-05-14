@@ -21,6 +21,10 @@
         </ol>
     </nav>
 
+    {% for category in categories %}
+        {% include "partials/category_tree.html" %}
+    {% endfor %}
+
     {% if order != "disable" %}
         <ul class="list-group d-inline">
             <li class="d-inline">
