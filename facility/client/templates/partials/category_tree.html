@@ -1,26 +1,75 @@
 {# recursive Django category tree #}
-<ul>
-    <li>
+{% with id=category.id|stringformat:"s" %}
+    <a data-bs-toggle="collapse" href="#multiCollapse{{ id }}" role="button" aria-expanded="false"
+       aria-controls="multiCollapse">
         <form action="{% url 'search_result' %}" method="get" class="d-inline">
             <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
                     type="submit"
-                    name="query" value="{{ category.name }}">{{ category.name }}
+                    name="query" value="{{ category.name }}" style="width: 100%;height: 50px;font-size: 20px;text-align: left">
+                {{ category.name }}
             </button>
         </form>
-        {# render devices #}
-        <ul>
-            {% for device in category.device_set.all %}
-                <li>
-                    {{ device.name }}
+    </a>
+    {# render devices #}
+    <ul class="list-group stripedlist mt-3">
+        {% for device in category.device_set.all %}
+            <div class="collapse multi-collapse" id="multiCollapse{{ id }}">
+                <li class="list-group-item d-flex justify-content-between align-items-start list-group-item-gray"
+                    style="list-style-type: none">
+                    <div class="fw-bold pb-2">
+                        <a class="text-decoration-none h5"
+                           href="{% url 'device' device_id=device.id %}">{{ device.name }}</a>
+                    </div>
+                    <ul class="list-group d-inline">
+                        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                            <button class="btn btn-primary badge bg-success rounded-pill" type="submit"
+                                    name="query"
+                                    value="{{ device.faculty.name }}">{{ device.faculty.name }}</button>
+                        </form>
+
+                        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                            <button class="btn btn-primary badge bg-department rounded-pill" type="submit"
+                                    name="query"
+                                    value="{{ device.department.name }}">{{ device.department.name }}</button>
+                        </form>
+
+                        {% for category in device.category.walk %}
+                            <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
+                                        type="submit"
+                                        name="query" value="{{ category.name }}">{{ category.name }}
+                                </button>
+                            </form>
+                            {% if not forloop.last %}
+                                <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
+                            {% endif %}
+                        {% endfor %}
+
+
+                        <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                            <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit"
+                                    name="query"
+                                    value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
+                        </form>
+
+                        {% for usage in device.usages.all %}
+                            <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit"
+                                        name="query"
+                                        value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
+                            </form>
+                        {% endfor %}
+                    </ul>
                 </li>
-            {% endfor %}
-        </ul>
-    </li>
+            </div>
+        {% endfor %}
+    </ul>
     {% if category.children %}
         <ul>
-        {% for child in category.children.all %}
-            {% include "partials/category_tree.html" with category=child %}
-        {% endfor %}
+            {% for child in category.children.all %}
+                {% include "partials/category_tree.html" with category=child %}
+            {% endfor %}
         </ul>
     {% endif %}
-</ul>
+{% endwith %}
+

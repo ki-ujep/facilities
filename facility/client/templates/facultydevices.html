@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
 {% endblock %}
 
 {% block title %}
@@ -22,9 +22,9 @@
     </nav>
 
     {% for category in categories %}
+        {# recursive Django category tree #}
         {% include "partials/category_tree.html" %}
     {% endfor %}
-
     {% if order != "disable" %}
         <ul class="list-group d-inline">
             <li class="d-inline">
