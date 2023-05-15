@@ -44,13 +44,18 @@ class FacultyDevicesListView(ListView):
 
         faculty = get_object_or_404(Faculty, id=faculty_id)
 
-        # get all distinct categories without parent
-        categories = Category.objects.filter(device__faculty=faculty, parent__isnull=True).distinct()
+        # get all distinct categories
+        categories = Category.objects.filter(device__faculty=faculty).distinct()
+        root_categories = []
+        for category in categories:
+            root = category.walk()[0]
+            if root not in root_categories:
+                root_categories.append(root)
 
         context["faculty_name"] = faculty.name
         context["faculty_id"] = faculty.id
         context["order"] = order
-        context["categories"] = categories
+        context["categories"] = root_categories
 
         return context
 
