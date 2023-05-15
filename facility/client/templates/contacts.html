@@ -51,19 +51,25 @@ Contacts
     <li class="card pb-5" style="max-width: 450px;">
         <div class="card-header">
             <a href="{% url 'contactdevices' contact_id=contact.id order='asc'%}" class="text-decoration-none">
-                <h4 class="card-title">{{ contact.titles }} {{ contact.name }}{% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</h4>
+                <h4 class="card-title">{% if contact.titles %}{{ contact.titles }} {% endif %}{{ contact.name }}{% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</h4>
             </a>
         </div>
         <div class="card-body row">
+            {% if contact.photo %}
             <div class="col">
                 <a href="{% url 'contactdevices' contact_id=contact.id order='asc'%}" class="text-decoration-none">
                 <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image" style="width: 10rem; height: 10rem;">
                 </a>
             </div>
+            {% endif %}
             <div class="col">
                 <ul>
+                    {% if contact.email %}
                     <li>{{ contact.email }}</li>
+                    {% endif %}
+                    {% if contact.phone %}
                     <li>{{ contact.phone }}</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
