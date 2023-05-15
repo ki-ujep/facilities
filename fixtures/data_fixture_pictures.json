@@ -1,0 +1,250 @@
+[
+    {
+        "model": "client.devicepicture",
+        "pk": 3,
+        "fields": {
+            "device": 1,
+            "image": "device_pictures/Analyser of total and organic carbon.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 4,
+        "fields": {
+            "device": 2,
+            "image": "device_pictures/Atomic force microscope Integra.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 5,
+        "fields": {
+            "device": 3,
+            "image": "device_pictures/CO2 sorption AUTOSORB Anton Paar.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 6,
+        "fields": {
+            "device": 4,
+            "image": "device_pictures/Complete infrastructure for mammalian cell cultivation and related experiments.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 7,
+        "fields": {
+            "device": 5,
+            "image": "device_pictures/Confocal microscope LEICA.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 8,
+        "fields": {
+            "device": 6,
+            "image": "device_pictures/Electrokinetic analyser SurPASS.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 9,
+        "fields": {
+            "device": 7,
+            "image": "device_pictures/Fluidized Bed Reactor.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 10,
+        "fields": {
+            "device": 8,
+            "image": "device_pictures/GC-qMS Agilent.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 11,
+        "fields": {
+            "device": 9,
+            "image": "device_pictures/Goniometr.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 12,
+        "fields": {
+            "device": 11,
+            "image": "device_pictures/ICP-OES Optical Emission Spectrometer.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 13,
+        "fields": {
+            "device": 12,
+            "image": "device_pictures/Ion Chromaatograph DIONEX.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 14,
+        "fields": {
+            "device": 13,
+            "image": "device_pictures/Laboratory of biosensors and microfluidics.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 15,
+        "fields": {
+            "device": 14,
+            "image": "device_pictures/Laboratory of computational chemistry.png"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 16,
+        "fields": {
+            "device": 18,
+            "image": "device_pictures/Liquid Chromatograph.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 17,
+        "fields": {
+            "device": 19,
+            "image": "device_pictures/Liquid chromatograph with diode-array detector Dionex.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 18,
+        "fields": {
+            "device": 20,
+            "image": "device_pictures/Liquid chromatograph with MS detection.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 19,
+        "fields": {
+            "device": 21,
+            "image": "device_pictures/Microarray laser scanner.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 20,
+        "fields": {
+            "device": 22,
+            "image": "device_pictures/Microarray printer.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 21,
+        "fields": {
+            "device": 23,
+            "image": "device_pictures/Microplate spectrophotometer.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 22,
+        "fields": {
+            "device": 24,
+            "image": "device_pictures/Potentiostat METROHM.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 23,
+        "fields": {
+            "device": 25,
+            "image": "device_pictures/Precise photo-reactor with optical bench.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 24,
+        "fields": {
+            "device": 26,
+            "image": "device_pictures/Secondary Ion Mass Spectrometer SIMS.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 25,
+        "fields": {
+            "device": 27,
+            "image": "device_pictures/Spectrofluorometer FluorMax 4.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 26,
+        "fields": {
+            "device": 28,
+            "image": "device_pictures/Spectrophotometer Cary 50.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 27,
+        "fields": {
+            "device": 29,
+            "image": "device_pictures/Surface area and porosity analyser determination of CO2 sorption AUTOSORB Anton Paar.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 28,
+        "fields": {
+            "device": 34,
+            "image": "device_pictures/Universal magnetron deposition system.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 29,
+        "fields": {
+            "device": 35,
+            "image": "device_pictures/UV Vis spectrophotometer CINTRA.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 30,
+        "fields": {
+            "device": 36,
+            "image": "device_pictures/WDRF spectrometer Rigaku Primus IV.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 31,
+        "fields": {
+            "device": 37,
+            "image": "device_pictures/X-ray difractometer Panalytical X.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 32,
+        "fields": {
+            "device": 39,
+            "image": "device_pictures/XPS ESCA and Auger electron spectroscopy.jpg"
+        }
+    },
+    {
+        "model": "client.devicepicture",
+        "pk": 33,
+        "fields": {
+            "device": 40,
+            "image": "device_pictures/Zetasizer nano ZS.jpg"
+        }
+    }
+]
