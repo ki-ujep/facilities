@@ -4,11 +4,13 @@
 
 {% block style %}
     <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/faculty_devices.css" %}">
 {% endblock %}
 
 {% block title %}
     Faculty Devices
 {% endblock %}
+
 
 {% block main %}
     <h2>{{ faculty_name }}</h2>
@@ -25,6 +27,18 @@
         {# recursive Django category tree #}
         {% include "partials/category_tree.html" %}
     {% endfor %}
+
+    {% block script %}
+    <script>
+        $('.panel').on('show.bs.collapse', function () {
+            $(this).siblings('.panel-heading').addClass('active');
+        });
+
+        $('.panel').on('hide.bs.collapse', function () {
+            $(this).siblings('.panel-heading').removeClass('active');
+        });
+    </script>
+{% endblock %}
     {% if order != "disable" %}
         <ul class="list-group d-inline">
             <li class="d-inline">
