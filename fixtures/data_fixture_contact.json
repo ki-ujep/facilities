@@ -3,7 +3,7 @@
         "model": "client.contact",
         "pk": 1,
         "fields":{
-            "titles": "Doc. Dr. Ing.",
+            "titles": "doc. Dr. Ing.",
             "name": "Pavel Kuráň",
             "email": "pavel.kuran@ujep.cz",
             "phone": "+420 607 964 365",
@@ -15,7 +15,7 @@
         "pk": 2,
         "fields":{
             "name": "Josef Trögl",
-            "titles": "Doc. Ing.",
+            "titles": "doc. Ing.",
             "titles_after": "Ph.D.",
             "email": "josef.trogl@ujep.cz",
             "phone": "+420 475 284 153",
@@ -27,7 +27,7 @@
         "pk": 3,
         "fields":{
             "name": "Martin Kormunda",
-            "titles": "Doc. Ing.",
+            "titles": "doc. Ing.",
             "titles_after": "Ph.D.",
             "email": "martin.kormunda@ujep.cz",
             "phone": "+420 475 286 624",
@@ -39,7 +39,7 @@
         "pk": 4,
         "fields":{
             "name": "Marek Malý",
-            "titles": "Doc. RNDr.",
+            "titles": "doc. RNDr.",
             "titles_after": "Ph.D.",
             "email": "marek.maly@ujep.cz",
             "phone": "+420 475 286 651",
