@@ -107,6 +107,19 @@ class Category(models.Model):
                 child.walk_down(path)
         return path
 
+    def have_children_devices(self):
+        """Returns True if current category have devices in child Categories
+        recursively."""
+        children = Category.objects.filter(parent=self)
+        if children is not None:
+            for child in children.all():
+                if child.have_children_devices():
+                    return True
+        devices = Device.objects.filter(category=self)
+        if devices is not None and devices.count() > 0:
+            return True
+        return False
+
     def __str__(self):
         path = [cat.name for cat in self.walk()]
         return ' -> '.join(path)

@@ -66,9 +66,13 @@
     </ul>
     {% if category.children %}
         <ul>
-            {% for child in category.children.all %}
-                {% include "partials/category_tree.html" with category=child %}
-            {% endfor %}
+            {% if category.have_children_devices %}
+                {% for child in category.children.all %}
+                    {% if child.have_children_devices or child.device_set.count > 0 %}
+                        {% include "partials/category_tree.html" with category=child %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </ul>
     {% endif %}
 {% endwith %}
