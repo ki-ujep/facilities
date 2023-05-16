@@ -22,7 +22,9 @@
                        class="text-decoration-none faculty">
                         <div class="card-body">
                             <h4 class="card-title">{{ faculty.name }}</h4>
-                            <img class="card-img-top" src="{{ faculty.logo_en.url }}" alt="FŽP logo" style="width:342px;height: 110px">
+                            {% if faculty.logo_en %}
+                                <img class="card-img-top" src="{{ faculty.logo_en.url }}" alt="FŽP logo" style="width:342px;height: 110px">
+                            {% endif %}
                         </div>
                     </a>
                 </li>

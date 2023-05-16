@@ -69,34 +69,69 @@
 
     </div>
     <div class="card-body">
-        {% if device.picture %}
-            <img src="{{ device.picture.url }}" class="card-img-top" alt="{{ device.name }} device picture">
+        {% with device.devicepicture_set.all as device_pictures %}
+            {% if device_pictures %}
+                <div id="deviceCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        {% for device_picture in device_pictures %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="carousel-img-container">
+                                    <img src="{{ device_picture.image.url }}" class="d-block w-100 card-img-top" alt="{{ device.name }} device picture">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if device.devicepicture_set.count > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#deviceCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#deviceCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% if device.description %}
+            <p class="card-text">{{ device.description }}</p>
         {% endif %}
-        <p class="card-text">{{ device.description }}</p>
         <ul class="list-group list-group-flush">
+            {% if device.serial_number %}
             <li class="list-group-item">
                 <span class="fw-bold">Serial Number:</span> {{device.serial_number}}
             </li>
+            {% endif %}
+            {% if device.usages.all %}
             <li class="list-group-item">
                 <span class="fw-bold">Academical usages:</span>
                 {% for usage in device.usages.all %}
                     <span class="badge bg-secondary rounded-pill">{{ usage.academical_usage }}</span>
                 {% endfor %}
             </li>
+            {% endif %}
             <li class="list-group-item">
                 <span class="fw-bold">Contact name:</span> <a href="{% url 'contactdevices' contact_id=device.contact.id order='asc' %}">{{ device.contact.titles }} {{device.contact.name}}{% if device.contact.titles_after %}, {{ device.contact.titles_after }}{% endif %}</a>
             </li>
+            {% if device.contact.email %}
             <li class="list-group-item">
                 <span class="fw-bold">Contact email:</span> {{device.contact.email}}
             </li>
+            {% endif %}
+            {% if device.contact.phone %}
             <li class="list-group-item">
                 <span class="fw-bold">Contact phone:</span> {{device.contact.phone}}
             </li>
+            {% endif %}
+            {% if device.attachments.all %}
             <li class="list-group-item">
                 <span class="fw-bold">Attachments:</span>
                 {% for attachment in device.attachments.all %}
                     <a href="{{ attachment.file.url }}" class="rounded-pill" style="color: #0d6efd">{{ attachment.file.name }}</a>
                 {% endfor %}
+            </li>
+            {% endif %}
         </ul>
         
     </div>
