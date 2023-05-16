@@ -4,26 +4,28 @@
 
 {% block style %}
     <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/faculty_devices.css" %}">
 {% endblock %}
 
 {% block title %}
-    Contact Devices
+    Faculty Devices
 {% endblock %}
 
+
 {% block main %}
-    <h2>{{ contact_titles }} {{ contact_name }}{% if contact_titles_after %}, {{ contact_titles_after }}{% endif %}</h2>
+    <h2>{{ listing_name }}</h2>
 
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
          aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'contacts' order='asc' %}">Contacts</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ contact_titles }} {{ contact_name }}{% if contact_titles_after %}, {{ contact_titles_after }}{% endif %}</li>
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Equipment</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ listing_name }}</li>
         </ol>
     </nav>
 
     <ul class="list-group d-inline">
         <li class="d-inline">
-            <a class="text-decoration-none" href="{% url 'contactdevices' contact_id=contact_id order='asc' %}">
+            <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='asc' %}">
                 {% if order == "desc" %}
                     <button type="button" class="btn btn-secondary bg-light text-dark border-primary border-1">
                 {% else %}
@@ -37,7 +39,7 @@
             </a>
         </li>
         <li class="d-inline">
-            <a class="text-decoration-none" href="{% url 'contactdevices' contact_id=contact_id order='desc' %}">
+            <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='desc' %}">
                 {% if order == "asc" %}
                     <button type="button" class="btn btn-secondary bg-light text-dark border-primary border-1">
                 {% else %}
@@ -52,6 +54,11 @@
         </li>
     </ul>
 
-    {% include "partials/devicelist.html" with devices=contact_devices %}
+    {% if found_message %}
+        <p>{{ found_message }}</p>
+    {% endif %}
+
+    {% include "partials/devicelist.html" with devices=devices %}
 
 {% endblock %}
+
