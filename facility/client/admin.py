@@ -14,7 +14,7 @@ class DeviceAdmin(admin.ModelAdmin):
     inlines = [DevicePictureInline, AttachmentInline]
 
 class LaboratoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "adress")
+    list_display = ("name", "adress", "faculty")
 
 
 class DepartmentAdmin(admin.ModelAdmin):
