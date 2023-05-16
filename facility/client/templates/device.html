@@ -34,34 +34,37 @@
 
         <h3 class="card-title text-center ">{{ device.name }}</h3>
 
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
-        </form>
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-department rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
-        </form>
-        
+        <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
+            <button class="btn btn-primary badge bg-success rounded-pill">{{ device.faculty.name }}</button>
+        </a>
+
+        {% if device.department %}
+        <a href="{% url 'departmentdevices' department_id=device.department.id order='asc' %}" class="d-inline">
+            <button class="btn btn-primary badge bg-department rounded-pill">{{ device.department.name }}</button>
+        </a>
+        {% endif %}
+
         {% for category in device.category.walk %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
-                        type="submit"
-                        name="query" value="{{ category.name }}">{{ category.name }}
+            <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-warning text-dark rounded-pill">{{ category.name }}
                 </button>
-            </form>
+            </a>
             {% if not forloop.last %}
                 <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
             {% endif %}
         {% endfor %}
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
-        </form>
-    
+
+
+        {% if device.laboratory %}
+        <a href="{% url 'laboratorydevices' laboratory_id=device.laboratory.id order='asc' %}" class="d-inline">
+            <button class="btn btn-primary badge bg-info text-dark rounded-pill">{{ device.laboratory.name }}</button>
+        </a>
+        {% endif %}
+
         {% for usage in device.usages.all %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
-            </form>
+            <a href="{% url 'usagedevices' usage_id=usage.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-secondary rounded-pill">{{ usage.academical_usage }}</button>
+            </a>
         {% endfor %}
 
     </div>
