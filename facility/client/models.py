@@ -33,6 +33,7 @@ class Usage(models.Model):
 class Laboratory(models.Model):
     name = models.CharField(max_length=255)
     adress = models.CharField(max_length=255, null=True, blank=True)
+    faculty = models.ForeignKey('Faculty', on_delete=models.PROTECT, null=True)
 
     class Meta:
         verbose_name_plural = "Laboratories"

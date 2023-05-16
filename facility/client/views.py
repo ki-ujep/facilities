@@ -41,11 +41,13 @@ class FacultyDevicesListView(TemplateView):
                 root_categories.append(root)
 
         departments = Department.objects.filter(faculty=faculty).distinct()
+        laboratories = Laboratory.objects.filter(faculty=faculty).distinct()
 
         context["faculty_name"] = faculty.name
         context["faculty_id"] = faculty.id
         context["categories"] = root_categories
         context["departments"] = departments
+        context["laboratories"] = laboratories
 
         return context
 
