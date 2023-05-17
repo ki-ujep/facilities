@@ -25,11 +25,11 @@
 
     <ul class="list-group d-inline">
         <li class="d-inline">
-            <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='asc' %}">
                 {% if order == "desc" %}
                     <button type="button" class="btn btn-secondary bg-light text-dark border-primary border-1">
+                    <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='asc' %}">
                 {% else %}
-                    <button type="button" class="btn btn-secondary bg-light text-dark disabled" disabled>
+                    <button type="button" class="btn btn-secondary bg-light text-dark disabled" aria-disabled="true">
                 {% endif %}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up"
                      viewBox="0 0 16 16">
@@ -39,9 +39,9 @@
             </a>
         </li>
         <li class="d-inline">
-            <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='desc' %}">
                 {% if order == "asc" %}
                     <button type="button" class="btn btn-secondary bg-light text-dark border-primary border-1">
+                        <a class="text-decoration-none" href="{% url 'departmentdevices' department_id=department_id order='desc' %}">
                 {% else %}
                     <button type="button" class="btn btn-secondary bg-light text-dark disabled" disabled>
                 {% endif %}
