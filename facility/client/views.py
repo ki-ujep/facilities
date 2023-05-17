@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, Value
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.views.generic import TemplateView
 from django.contrib.postgres.search import TrigramWordDistance, SearchVector, SearchQuery, SearchRank
 from django.db.models.functions import Least
 
@@ -21,36 +22,139 @@ def home(request):
     }
     return render(request, "home.html", context)
 
-class FacultyDevicesListView(ListView):
-    model = Device
+class FacultyDevicesListView(TemplateView):
     template_name = "facultydevices.html"
-    context_object_name = "faculty_devices"
-
-    def get_queryset(self):
-        faculty_id = self.kwargs.get("faculty_id")
-        order = self.kwargs.get("order")
-        faculty = get_object_or_404(Faculty, id=faculty_id)
-
-        if order == "asc":
-            return Device.objects.filter(faculty=faculty).order_by("name", "department")
-        else:
-            return Device.objects.filter(faculty=faculty).order_by("-name", "department")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         faculty_id = self.kwargs.get("faculty_id")
-        order = self.kwargs.get("order")
 
         faculty = get_object_or_404(Faculty, id=faculty_id)
 
-        # get all distinct categories without parent
-        categories = Category.objects.filter(device__faculty=faculty, parent__isnull=True).distinct()
+        # get all distinct categories
+        categories = Category.objects.filter(device__faculty=faculty).distinct()
+        root_categories = []
+        for category in categories:
+            root = category.walk()[0]
+            if root not in root_categories:
+                root_categories.append(root)
+
+        departments = Department.objects.filter(faculty=faculty).distinct()
+        laboratories = Laboratory.objects.filter(faculty=faculty).distinct()
 
         context["faculty_name"] = faculty.name
         context["faculty_id"] = faculty.id
+        context["categories"] = root_categories
+        context["departments"] = departments
+        context["laboratories"] = laboratories
+
+        return context
+
+class CategoryDevicesListView(ListView):
+    model = Device
+    template_name = "categorydevices.html"
+    context_object_name = "devices"
+
+    def get_queryset(self):
+        order = self.kwargs.get("order")
+        if order == "desc":
+            order = "-name"
+        else:
+            order = "name"
+        return super().get_queryset().filter(category__id=self.kwargs.get("category_id")).order_by(order)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category_id = self.kwargs.get("category_id")
+        order = self.kwargs.get("order")
+
+        category = get_object_or_404(Category, id=category_id)
+
+        context["listing_name"] = category.name
+        context["category_id"] = category_id
         context["order"] = order
-        context["categories"] = categories
+
+        return context
+
+class DepartmentDevicesListView(ListView):
+    model = Device
+    template_name = "departmentdevices.html"
+    context_object_name = "devices"
+
+    def get_queryset(self):
+        order = self.kwargs.get("order")
+        if order == "desc":
+            order = "-name"
+        else:
+            order = "name"
+        return super().get_queryset().filter(department__id=self.kwargs.get("department_id")).order_by(order)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        department_id = self.kwargs.get("department_id")
+        order = self.kwargs.get("order")
+
+        department = get_object_or_404(Department, id=department_id)
+
+        context["listing_name"] = department.name
+        context["department_id"] = department_id
+        context["order"] = order
+
+        return context
+
+class LaboratoryDevicesListView(ListView):
+    model = Device
+    template_name = "laboratorydevices.html"
+    context_object_name = "devices"
+
+    def get_queryset(self):
+        order = self.kwargs.get("order")
+        if order == "desc":
+            order = "-name"
+        else:
+            order = "name"
+        return super().get_queryset().filter(laboratory__id=self.kwargs.get("laboratory_id")).order_by(order)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        laboratory_id = self.kwargs.get("laboratory_id")
+        order = self.kwargs.get("order")
+
+        laboratory = get_object_or_404(Laboratory, id=laboratory_id)
+
+        context["listing_name"] = laboratory.name
+        context["laboratory_id"] = laboratory_id
+        context["order"] = order
+
+        return context
+
+class UsageDevicesListView(ListView):
+    model = Device
+    template_name = "usagedevices.html"
+    context_object_name = "devices"
+
+    def get_queryset(self):
+        order = self.kwargs.get("order")
+        if order == "desc":
+            order = "-name"
+        else:
+            order = "name"
+        return super().get_queryset().filter(usages__id=self.kwargs.get("usage_id")).order_by(order)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        usage_id = self.kwargs.get("usage_id")
+        order = self.kwargs.get("order")
+
+        usage = get_object_or_404(Usage, id=usage_id)
+
+        context["listing_name"] = usage.academical_usage
+        context["usage_id"] = usage_id
+        context["order"] = order
 
         return context
 
@@ -119,13 +223,13 @@ def search_result(request):
 
 
     context = {
-        "faculty_devices": devices,
-        "faculty_name": query,
+        "devices": devices,
+        "listing_name": query,
         "found_message": found_message,
         "order": "disable"
     }
 
-    return render(request, "facultydevices.html", context)
+    return render(request, "devicelist.html", context)
 
 class ContactDevicesListView(ListView):
     model = Device

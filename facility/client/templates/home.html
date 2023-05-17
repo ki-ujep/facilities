@@ -18,7 +18,7 @@
         {% for faculty in faculties %}
             {% if faculty.active == True %}
                 <li class="card" style="width:400px">
-                    <a href="{% url 'facultydevices' faculty_id=faculty.id order='asc' %}"
+                    <a href="{% url 'facultydevices' faculty_id=faculty.id %}"
                        class="text-decoration-none faculty">
                         <div class="card-body">
                             <h4 class="card-title">{{ faculty.name }}</h4>

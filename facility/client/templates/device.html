@@ -15,7 +15,7 @@
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Equipment</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'facultydevices' faculty_id=faculty.id order='asc'%}">{{ faculty.name }}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'facultydevices' faculty_id=faculty.id %}">{{ faculty.name }}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ device.name }}</li>
     </ol>
 </nav>
@@ -34,34 +34,37 @@
 
         <h3 class="card-title text-center ">{{ device.name }}</h3>
 
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
-        </form>
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-department rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
-        </form>
-        
+        <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
+            <button class="btn btn-primary badge bg-success rounded-pill">{{ device.faculty.name }}</button>
+        </a>
+
+        {% if device.department %}
+        <a href="{% url 'departmentdevices' department_id=device.department.id order='asc' %}" class="d-inline">
+            <button class="btn btn-primary badge bg-department rounded-pill">{{ device.department.name }}</button>
+        </a>
+        {% endif %}
+
         {% for category in device.category.walk %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
-                        type="submit"
-                        name="query" value="{{ category.name }}">{{ category.name }}
+            <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-warning text-dark rounded-pill">{{ category.name }}
                 </button>
-            </form>
+            </a>
             {% if not forloop.last %}
                 <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
             {% endif %}
         {% endfor %}
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
-        </form>
-    
+
+
+        {% if device.laboratory %}
+        <a href="{% url 'laboratorydevices' laboratory_id=device.laboratory.id order='asc' %}" class="d-inline">
+            <button class="btn btn-primary badge bg-info text-dark rounded-pill">{{ device.laboratory.name }}</button>
+        </a>
+        {% endif %}
+
         {% for usage in device.usages.all %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
-            </form>
+            <a href="{% url 'usagedevices' usage_id=usage.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-secondary rounded-pill">{{ usage.academical_usage }}</button>
+            </a>
         {% endfor %}
 
     </div>

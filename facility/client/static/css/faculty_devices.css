@@ -1,0 +1,35 @@
+.panel-heading {
+    padding: 0;
+    border: 0;
+}
+
+.panel-title > a, .panel-title > a:active {
+    display: block;
+    padding: 15px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    text-decoration: none;
+}
+
+.panel-heading.active a:before {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn i {
+  transition: transform 0.3s ease;
+}
+
+.btn.active i {
+  transform: rotate(180deg);
+}
