@@ -3,78 +3,83 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}">
 {% endblock %}
 
 {% block title %}
-Contacts
+    Contacts
 {% endblock %}
 
 {% block main %}
-<h2>Contacts</h2>
+    <h2>Contacts</h2>
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Contacts</li>
-</ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Contacts</li>
+    </ol>
 
-<ul class="list-group d-inline">
-    <li class="d-inline">
-        <a class="text-decoration-none" href="{% url 'contacts' order='asc' %}">
+    <ul class="list-group d-inline">
+        <li class="d-inline">
             {% if order == "desc" %}
-            <button type="button" class="btn btn-secondary bg-light text-dark">
+                <a class="text-decoration-none btn btn-secondary bg-light text-dark border-primary border-1"
+                   href="{% url 'contacts' order='asc' %}">
             {% else %}
-            <button type="button" class="btn btn-secondary bg-light text-dark border-primary border-1 disabled" disabled>
+                <button type="button" class="btn btn-secondary bg-light text-dark disabled" aria-disabled="true">
             {% endif %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
-                    <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
-                </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up"
+                 viewBox="0 0 16 16">
+                <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+            </svg>
             </button>
-        </a>
-    </li>
-    <li class="d-inline">
-        <a class="text-decoration-none" href="{% url 'contacts' order='desc' %}">
-            {% if order == "asc" %}
-            <button type="button" class="btn btn-secondary bg-light text-dark ">
-            {% else %}
-            <button type="button" class="btn btn-secondary bg-light text-dark disabled border-primary border-1" disabled>
-            {% endif %}
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
-                    <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
-                </svg>
-            </button>
-        </a>
-    </li>
-</ul>
-
-<ul class="row mt-3">
-{% for contact in contacts %}
-    <li class="card pb-5" style="max-width: 450px;">
-        <div class="card-header">
-            <a href="{% url 'contactdevices' contact_id=contact.id order='asc'%}" class="text-decoration-none">
-                <h4 class="card-title">{% if contact.titles %}{{ contact.titles }} {% endif %}{{ contact.name }}{% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</h4>
             </a>
-        </div>
-        <div class="card-body row">
-            {% if contact.photo %}
-            <div class="col">
-                <a href="{% url 'contactdevices' contact_id=contact.id order='asc'%}" class="text-decoration-none">
-                <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image" style="width: 10rem; height: 10rem;">
-                </a>
-            </div>
+        </li>
+        <li class="d-inline">
+            {% if order == "asc" %}
+                <a class="text-decoration-none btn btn-secondary bg-light text-dark border-primary border-1"
+                   href="{% url 'contacts' order='desc' %}">
+            {% else %}
+                <button type="button" class="btn btn-secondary bg-light text-dark disabled" disabled>
             {% endif %}
-            <div class="col">
-                <ul>
-                    {% if contact.email %}
-                    <li>{{ contact.email }}</li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-sort-down" viewBox="0 0 16 16">
+                <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+            </svg>
+            </button>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="row mt-3">
+        {% for contact in contacts %}
+            <li class="card pb-5" style="max-width: 450px;">
+                <div class="card-header">
+                    <a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}" class="text-decoration-none">
+                        <h4 class="card-title">{% if contact.titles %}{{ contact.titles }} {% endif %}{{ contact.name }}
+                            {% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</h4>
+                    </a>
+                </div>
+                <div class="card-body row">
+                    {% if contact.photo %}
+                        <div class="col">
+                            <a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}"
+                               class="text-decoration-none">
+                                <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image"
+                                     style="width: 10rem; height: 10rem;">
+                            </a>
+                        </div>
                     {% endif %}
-                    {% if contact.phone %}
-                    <li>{{ contact.phone }}</li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </li>
-{% endfor %}
-</ul>
+                    <div class="col">
+                        <ul>
+                            {% if contact.email %}
+                                <li>{{ contact.email }}</li>
+                            {% endif %}
+                            {% if contact.phone %}
+                                <li>{{ contact.phone }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
     
