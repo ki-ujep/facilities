@@ -40,8 +40,7 @@
 
                         {% for category in device.category.walk %}
                             <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
-                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill custom-badge-breaking">{{ category.name }}
-                                </button>
+                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill custom-badge-breaking">{{ category.name }}</button>
                             </a>
                             {% if not forloop.last %}
                                 <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
