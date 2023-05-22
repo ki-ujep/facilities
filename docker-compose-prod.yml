@@ -13,6 +13,8 @@ services:
       - DJANGO_DB_PASSWORD=letmein
       - DJANGO_DB_HOST=postgresql
       - DJANGO_DB_PORT=5432
+      - DJANGO_ALLOWED_HOSTS=
+      - DJANGO_CSRF_TRUSTED_ORIGINS=
     ports:
       - '127.0.0.1:8000:8000'
     volumes:
