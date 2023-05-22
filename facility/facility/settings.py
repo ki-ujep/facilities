@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [host for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localh
 
 SESSION_COOKIE_SECURE = os.environ.get("DJANGO_PRODUCTION", "False") == "True"
 CSRF_COOKIE_SECURE = os.environ.get("DJANGO_PRODUCTION", "False") == "True"
-CSRF_TRUSTED_ORIGINS = [host for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")]
+CSRF_TRUSTED_ORIGINS = [host for host in os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "https://localhost:8000").split(",")]
 
 # Application definition
 

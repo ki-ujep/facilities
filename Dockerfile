@@ -6,16 +6,12 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /app
 WORKDIR /app
 
-RUN addgroup -S django && adduser -S -G django -u 1000 django
-
-COPY ./requirements.txt /app/
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
+COPY ./requirements.txt /app/.
 COPY ./facility /app
 
-RUN chown -R django:django /app
-
-RUN python manage.py collectstatic --noinput
+RUN addgroup -S django && adduser -S -G django -u 1000 django && \
+    pip install --trusted-host pypi.python.org -r requirements.txt && \
+    python manage.py collectstatic --noinput
 
 USER django
 
