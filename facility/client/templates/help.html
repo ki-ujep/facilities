@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 
 {% block title %}
-Help
+    Help
 {% endblock %}
 
 {% block main %}
-<h2>Help</h2>
+    <h2>Help</h2>
 
-<p>Searching is provided among whole database. In that reason the some filters for search results are not available. The search results depends on many factors and results are mixed for search strings that matches values stored in database.</p>
-<p>Search algorithm finds matches in following data in database:</p>
-<ul>
-    <li>Manager name</li>
-    <li>Manager email</li>
-    <li>Manager phone</li>
-    <li>Device name</li>
-    <li>Device serial number</li>
-    <li>Deivce category</li>
-    <li>Device Location:
-        <ul>
-            <li>Department</li>
-            <li>Faculty</li>
-            <li>Laboratory</li>
-        </ul>
-    </li>
-    <li>Academical usage</li>
-</ul>
-<p>We recommend to give as detailed as possible search parameters to match you exactly search. Otherwise you may recieve unexpectedly long set of results and filtering these results may be hard.</p>
+    <p>Searching is provided among whole database. In that reason the some filters for search results are not available.
+        The search results depends on many factors and results are mixed for search strings that matches values stored
+        in database.</p>
+    <p>Search algorithm finds matches in following data in database:</p>
+    <ul>
+        <li>Manager name</li>
+        <li>Manager email</li>
+        <li>Manager phone</li>
+        <li>Device name</li>
+        <li>Device serial number</li>
+        <li>Device category</li>
+        <li>Device Location:
+            <ul>
+                <li>Department</li>
+                <li>Faculty</li>
+                <li>Laboratory</li>
+            </ul>
+        </li>
+        <li>Academical usage</li>
+    </ul>
+    <p>We recommend to give as detailed as possible search parameters to match you exactly search. Otherwise you may
+        recieve unexpectedly long set of results and filtering these results may be hard.</p>
 {% endblock %}
