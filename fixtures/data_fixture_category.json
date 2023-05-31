@@ -36,13 +36,6 @@
   },  
   {
     "model": "client.category",
-    "pk": 6,
-    "fields":{
-      "name": "Analyzer"
-    } 
-  },  
-  {
-    "model": "client.category",
     "pk": 7,
     "fields":{
       "name": "Microbiological techniques"
@@ -67,13 +60,6 @@
     "pk": 10,
     "fields":{
       "name": "Physical properties measuring systems"
-    } 
-  },  
-  {
-    "model": "client.category",
-    "pk": 11,
-    "fields":{
-      "name": "Reactors"
     } 
   },  
   {
