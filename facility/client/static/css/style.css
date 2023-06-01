@@ -97,6 +97,12 @@ body {
     height: auto;
 }
 
+.device-tag {
+    text-align: left;
+    white-space: normal;
+    margin-top: 0.5em;
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 16px;

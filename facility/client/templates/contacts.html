@@ -51,16 +51,18 @@
 
     <ul class="row mt-3">
         {% for contact in contacts %}
-            <li class="card pb-5" style="max-width: 450px;">
+            <li class="card pb-5 col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="card-header">
                     <a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}" class="text-decoration-none">
-                        <h4 class="card-title">{% if contact.titles %}{{ contact.titles }} {% endif %}{{ contact.name }}
-                            {% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</h4>
+                        <h4 class="card-title" style="min-height: 2em; max-height: 2em;">
+                            {% if contact.titles %}{{ contact.titles }} {% endif %}{{ contact.name }}
+                            {% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}
+                        </h4>
                     </a>
                 </div>
                 <div class="card-body row">
                     {% if contact.photo %}
-                        <div class="col">
+                        <div class="col" style="min-width: fit-content;">
                             <a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}"
                                class="text-decoration-none">
                                 <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image"
