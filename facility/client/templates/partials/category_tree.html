@@ -29,18 +29,18 @@
                     </div>
                     <ul class="list-group d-inline">
                         <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
-                            <button class="btn btn-primary badge bg-success rounded-pill">{{ device.faculty.name }}</button>
+                            <button class="btn btn-primary badge bg-success rounded-pill device-tag">{{ device.faculty.name }}</button>
                         </a>
 
                         {% if device.department %}
                         <a href="{% url 'departmentdevices' department_id=device.department.id order='asc' %}" class="d-inline">
-                            <button class="btn btn-primary badge bg-department rounded-pill">{{ device.department.name }}</button>
+                            <button class="btn btn-primary badge bg-department rounded-pill device-tag">{{ device.department.name }}</button>
                         </a>
                         {% endif %}
 
                         {% for category in device.category.walk %}
                             <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
-                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill">{{ category.name }}
+                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill device-tag">{{ category.name }}
                                 </button>
                             </a>
                             {% if not forloop.last %}
@@ -51,13 +51,13 @@
 
                         {% if device.laboratory %}
                         <a href="{% url 'laboratorydevices' laboratory_id=device.laboratory.id order='asc' %}" class="d-inline">
-                            <button class="btn btn-primary badge bg-info text-dark rounded-pill">{{ device.laboratory.name }}</button>
+                            <button class="btn btn-primary badge bg-info text-dark rounded-pill device-tag">{{ device.laboratory.name }}</button>
                         </a>
                         {% endif %}
 
                         {% for usage in device.usages.all %}
                             <a href="{% url 'usagedevices' usage_id=usage.id order='asc' %}" class="d-inline">
-                                <button class="btn btn-primary badge bg-secondary rounded-pill">{{ usage.academical_usage }}</button>
+                                <button class="btn btn-primary badge bg-secondary rounded-pill device-tag">{{ usage.academical_usage }}</button>
                             </a>
                         {% endfor %}
                     </ul>

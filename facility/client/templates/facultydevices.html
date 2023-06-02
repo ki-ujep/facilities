@@ -32,7 +32,7 @@
                     {% for department in departments %}
                         <li>
                             <a href="{% url 'departmentdevices' department_id=department.id order='asc' %}">
-                                <button style="white-space: break-spaces; text-align: left;" class="btn btn-primary badge bg-department rounded-pill">{{ department.name }}</button>
+                                <button class="btn btn-primary badge bg-department rounded-pill device-tag">{{ department.name }}</button>
                             </a>
                         </li>
                     {% endfor %}
@@ -44,7 +44,7 @@
                     {% for laboratory in laboratories %}
                         <li>
                             <a href="{% url 'laboratorydevices' laboratory_id=laboratory.id order='asc' %}">
-                                <button style="white-space: break-spaces; text-align: left;" class="btn btn-primary badge bg-info text-dark rounded-pill">{{ laboratory.name }}</button>
+                                <button class="btn btn-primary badge bg-info text-dark rounded-pill device-tag">{{ laboratory.name }}</button>
                             </a>
                         </li>
                     {% endfor %}
