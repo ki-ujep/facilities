@@ -27,7 +27,7 @@
                         <a class="text-decoration-none h5"
                            href="{% url 'device' device_id=device.id %}">{{ device.name }}</a>
                     </div>
-                    <ul class="list-group d-inline">
+                    <ul class="list-group device-tag-list" style="max-width: 50%;">
                         <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
                             <button class="btn btn-primary badge bg-success rounded-pill device-tag">{{ device.faculty.name }}</button>
                         </a>

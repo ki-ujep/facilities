@@ -97,10 +97,17 @@ body {
     height: auto;
 }
 
+.device-tag-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .device-tag {
     text-align: left;
     white-space: normal;
     margin-top: 0.5em;
+    margin-right: 0.5em;
 }
 
 @media (max-width: 768px) {
