@@ -1,8 +1,7 @@
+# Workflow to build docker image (for testing purposes) on PR
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
