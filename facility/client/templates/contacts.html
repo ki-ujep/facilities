@@ -62,7 +62,7 @@
                 </div>
                 <div class="card-body row">
                     {% if contact.photo %}
-                        <div class="col" style="min-width: fit-content;">
+                        <div class="col" style="min-width: 100%; display: flex; justify-content: center;">
                             <a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}"
                                class="text-decoration-none">
                                 <img class="card-img-top img-thumbnail" src="{{ contact.photo.url }}" alt="Card image"
