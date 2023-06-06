@@ -1,8 +1,9 @@
 version: '3.8'
 
 services:
+
   webapp:
-    image: 'ki-ujep/facilities:latest'
+    image: 'kiujep/facilities:main'
     depends_on:
       - postgresql
     environment:
@@ -19,16 +20,29 @@ services:
       - '127.0.0.1:8000:8000'
     volumes:
       - "./media:/app/media"
+    restart: always
+
   postgresql:
     image: 'bitnami/postgresql:latest'
     environment:
       - POSTGRESQL_USERNAME=facilities
       - POSTGRESQL_PASSWORD=letmein
       - POSTGRESQL_DATABASE=facilities
+    ports:
+      - '127.0.0.1:5432:5432'
     volumes:
       - 'postgresql_data:/bitnami/postgresql'
       - 'postgresql_initdb:/docker-entrypoint-initdb.d'
       - 'postgresql_pre_initdb:/docker-entrypoint-preinitdb.d'
+    restart: always
+  
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30
+    restart: always
+
 
 
 volumes:
