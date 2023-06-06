@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   webapp:
-    image: 'kiujep/facilities:main'
+    image: 'kiujep/facilities:latest'
     depends_on:
       - postgresql
     environment:
