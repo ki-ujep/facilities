@@ -7,8 +7,6 @@ RUN mkdir /facility
 WORKDIR /facility
 
 COPY ./requirements.txt /facility/.
-COPY ./populate_db.sh /.
-COPY ./fixtures /fixtures
 COPY ./facility /facility
 
 RUN addgroup -S django && adduser -S -G django -u 1000 django && \
