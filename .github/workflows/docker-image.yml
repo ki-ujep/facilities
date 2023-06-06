@@ -1,0 +1,17 @@
+# Workflow to build docker image (for testing purposes) on PR
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ki-ujep/facilities:$(date +%s)

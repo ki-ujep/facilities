@@ -1,0 +1,79 @@
+{# recursive Django category tree #}
+{% with id=category.id|stringformat:"s" %}
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <a data-bs-toggle="collapse" href="#multiCollapse{{ id }}" role="button" aria-expanded="true"
+               aria-controls="multiCollapse" style="opacity: 0.9">
+                <form action="{% url 'search_result' %}" method="get" class="d-inline">
+                    <button class="btn btn-primary badge bg-warning text-dark"
+                            type="submit"
+                            name="query" value="{{ category.name }}"
+                            style="width: 100%;height: 50px;font-size: 20px;text-align: left">
+                        {{ category.name }}
+                        <i class='fas fa-angle-down' style="float: right"></i>
+                    </button>
+                </form>
+            </a>
+        </div>
+    </div>
+    {# render devices #}
+    <ul class="list-group stripedlist mt-3">
+        {% for device in category.device_set.all %}
+            <div class="collapse multi-collapse" id="multiCollapse{{ id }}">
+                <li class="list-group-item d-flex justify-content-between align-items-start list-group-item-gray"
+                    style="list-style-type: none">
+                    <div class="fw-bold pb-2" style="padding: 0.25em;">
+                        <a class="text-decoration-none h5"
+                           href="{% url 'device' device_id=device.id %}">{{ device.name }}</a>
+                    </div>
+                    <ul class="list-group device-tag-list" style="max-width: 50%;">
+                        <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
+                            <button class="btn btn-primary badge bg-success rounded-pill device-tag">{{ device.faculty.name }}</button>
+                        </a>
+
+                        {% if device.department %}
+                        <a href="{% url 'departmentdevices' department_id=device.department.id order='asc' %}" class="d-inline">
+                            <button class="btn btn-primary badge bg-department rounded-pill device-tag">{{ device.department.name }}</button>
+                        </a>
+                        {% endif %}
+
+                        {% for category in device.category.walk %}
+                            <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
+                                <button class="btn btn-primary badge bg-warning text-dark rounded-pill device-tag">{{ category.name }}
+                                </button>
+                            </a>
+                            {% if not forloop.last %}
+                                <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
+                            {% endif %}
+                        {% endfor %}
+
+
+                        {% if device.laboratory %}
+                        <a href="{% url 'laboratorydevices' laboratory_id=device.laboratory.id order='asc' %}" class="d-inline">
+                            <button class="btn btn-primary badge bg-info text-dark rounded-pill device-tag">{{ device.laboratory.name }}</button>
+                        </a>
+                        {% endif %}
+
+                        {% for usage in device.usages.all %}
+                            <a href="{% url 'usagedevices' usage_id=usage.id order='asc' %}" class="d-inline">
+                                <button class="btn btn-primary badge bg-secondary rounded-pill device-tag">{{ usage.academical_usage }}</button>
+                            </a>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+    {% if category.children %}
+        <ul>
+            {% if category.have_children_devices %}
+                {% for child in category.children.all %}
+                    {% if child.have_children_devices or child.device_set.count > 0 %}
+                        {% include "partials/category_tree.html" with category=child %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endwith %}

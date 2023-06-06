@@ -14,8 +14,8 @@
 
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Facilities</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'facultydevices' faculty_id=faculty.id order='asc'%}">{{ faculty.name }}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Equipment</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'facultydevices' faculty_id=faculty.id %}">{{ faculty.name }}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ device.name }}</li>
     </ol>
 </nav>
@@ -23,7 +23,7 @@
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'contacts' order='asc'%}">Contacts</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}">{{ contact.name }}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'contactdevices' contact_id=contact.id order='asc' %}">{{ contact.titles }} {{ contact.name }}{% if contact.titles_after %}, {{ contact.titles_after }}{% endif %}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ device.name }}</li>
     </ol>
 </nav>
@@ -34,66 +34,106 @@
 
         <h3 class="card-title text-center ">{{ device.name }}</h3>
 
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-success rounded-pill" type="submit" name="query" value="{{device.faculty.name}}">{{device.faculty.name}}</button>
-        </form>
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-department rounded-pill" type="submit" name="query" value="{{device.department.name}}">{{device.department.name}}</button>
-        </form>
-        
-        {% for category in device.category.walk %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-warning text-dark rounded-pill"
-                        type="submit"
-                        name="query" value="{{ category.name }}">{{ category.name }}
-                </button>
-            </form>
-            {% if not forloop.last %}
-                <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
+        <ul class="list-group device-tag-list">
+            <a href="{% url 'facultydevices' faculty_id=device.faculty.id %}" class="d-inline">
+                <button class="btn btn-primary badge bg-success rounded-pill device-tag">{{ device.faculty.name }}</button>
+            </a>
+
+            {% if device.department %}
+            <a href="{% url 'departmentdevices' department_id=device.department.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-department rounded-pill device-tag">{{ device.department.name }}</button>
+            </a>
             {% endif %}
-        {% endfor %}
-        
-        <form action="{% url 'search_result' %}" method="get" class="d-inline">
-            <button class="btn btn-primary badge bg-info text-dark rounded-pill" type="submit" name="query" value="{{ device.laboratory.name }}">{{ device.laboratory.name }}</button>
-        </form>
-    
-        {% for usage in device.usages.all %}
-            <form action="{% url 'search_result' %}" method="get" class="d-inline">
-                <button class="btn btn-primary badge bg-secondary rounded-pill" type="submit" name="query" value="{{ usage.academical_usage }}">{{ usage.academical_usage }}</button>
-            </form>
-        {% endfor %}
+
+            {% for category in device.category.walk %}
+                <a href="{% url 'categorydevices' category_id=category.id order='asc' %}" class="d-inline">
+                    <button class="btn btn-primary badge bg-warning text-dark rounded-pill device-tag">{{ category.name }}
+                    </button>
+                </a>
+                {% if not forloop.last %}
+                    <span class="badge bg-primary bg-warning text-dark rounded-pill">-></span>
+                {% endif %}
+            {% endfor %}
+
+
+            {% if device.laboratory %}
+            <a href="{% url 'laboratorydevices' laboratory_id=device.laboratory.id order='asc' %}" class="d-inline">
+                <button class="btn btn-primary badge bg-info text-dark rounded-pill device-tag">{{ device.laboratory.name }}</button>
+            </a>
+            {% endif %}
+
+            {% for usage in device.usages.all %}
+                <a href="{% url 'usagedevices' usage_id=usage.id order='asc' %}" class="d-inline">
+                    <button class="btn btn-primary badge bg-secondary rounded-pill device-tag">{{ usage.academical_usage }}</button>
+                </a>
+            {% endfor %}
+        </ul>
 
     </div>
     <div class="card-body">
-        {% if device.picture %}
-            <img src="{{ device.picture.url }}" class="card-img-top" alt="{{ device.name }} device picture">
+        {% with device.devicepicture_set.all as device_pictures %}
+            {% if device_pictures %}
+                <div id="deviceCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        {% for device_picture in device_pictures %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="carousel-img-container">
+                                    <img src="{{ device_picture.image.url }}" class="d-block w-100 card-img-top" alt="{{ device.name }} device picture">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if device.devicepicture_set.count > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#deviceCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#deviceCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% if device.description %}
+            <p class="card-text">{{ device.description }}</p>
         {% endif %}
-        <p class="card-text">{{ device.description }}</p>
         <ul class="list-group list-group-flush">
+            {% if device.serial_number %}
             <li class="list-group-item">
                 <span class="fw-bold">Serial Number:</span> {{device.serial_number}}
             </li>
+            {% endif %}
+            {% if device.usages.all %}
             <li class="list-group-item">
                 <span class="fw-bold">Academical usages:</span>
                 {% for usage in device.usages.all %}
                     <span class="badge bg-secondary rounded-pill">{{ usage.academical_usage }}</span>
                 {% endfor %}
             </li>
+            {% endif %}
             <li class="list-group-item">
-                <span class="fw-bold">Contact name:</span> <a href="{% url 'contactdevices' contact_id=device.contact.id order='asc' %}">{{device.contact.name}}</a>
+                <span class="fw-bold">Contact name:</span> <a href="{% url 'contactdevices' contact_id=device.contact.id order='asc' %}">{{ device.contact.titles }} {{device.contact.name}}{% if device.contact.titles_after %}, {{ device.contact.titles_after }}{% endif %}</a>
             </li>
+            {% if device.contact.email %}
             <li class="list-group-item">
                 <span class="fw-bold">Contact email:</span> {{device.contact.email}}
             </li>
+            {% endif %}
+            {% if device.contact.phone %}
             <li class="list-group-item">
                 <span class="fw-bold">Contact phone:</span> {{device.contact.phone}}
             </li>
+            {% endif %}
+            {% if device.attachments.all %}
             <li class="list-group-item">
                 <span class="fw-bold">Attachments:</span>
                 {% for attachment in device.attachments.all %}
                     <a href="{{ attachment.file.url }}" class="rounded-pill" style="color: #0d6efd">{{ attachment.file.name }}</a>
                 {% endfor %}
+            </li>
+            {% endif %}
         </ul>
         
     </div>

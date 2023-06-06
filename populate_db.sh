@@ -5,3 +5,4 @@ python facility/manage.py loaddata fixtures/data_fixture_department.json
 python facility/manage.py loaddata fixtures/data_fixture_category.json
 python facility/manage.py loaddata fixtures/data_fixture_devices.json
 python facility/manage.py loaddata fixtures/data_fixture_attachment.json
+python facility/manage.py loaddata fixtures/data_fixture_pictures.json

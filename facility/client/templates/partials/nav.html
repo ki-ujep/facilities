@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item text-uppercase ps-3 pe-3 box {% active_link 'home' 'active_nav' %}">
-                    <a class="nav-link" href="{% url 'home' %}">Facility</a></li>
+                    <a class="nav-link" href="{% url 'home' %}">Equipment</a></li>
                 <li class="nav-item text-uppercase ps-3 pe-3 box {% if "contacts/" in request.path %}active_nav{% else %}{% active_link 'contacts || contacts/asc' 'active_nav' %}{% endif %}">
                     <a class="nav-link" href="{% url 'contacts' order='asc' %}">Contacts</a>
                 </li>
