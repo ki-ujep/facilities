@@ -1,6 +1,6 @@
 from django.test import TestCase, SimpleTestCase, Client
 from django.urls import reverse
-
+from client.models import Contact
 
 class AboutPageTests(SimpleTestCase):
     def __init__(self, *args, **kwargs):
@@ -73,27 +73,26 @@ class HomePageTests(TestCase):
         #self.assertContains(response, "<h2>Facilities</h2>")
         self.assertNotContains(response, "Under construction ...")
 
-
 class ContactsPageTests(TestCase):
-    def __init__(self, *args, **kwargs):
-        self.client = Client()
-        super(ContactsPageTests, self).__init__(*args, **kwargs)
+    @classmethod
+    def setUpTestData(cls):
+        # Set up non-modified objects used by all test methods
+        Contact.objects.create(name='Test Contact 1')
+        Contact.objects.create(name='Test Contact 2')
 
-    """
     def test_url_exists_at_correct_location(self):
-        response = self.client.get(reverse("contacts"))
+        response = self.client.get(reverse("contacts", args=("name",)))
         self.assertEqual(response.status_code, 200)
-    """
-    # django.urls.exceptions.NoReverseMatch: Reverse for 'contacts' with arguments '('c', 'o', 'n', 't', 'a', 'c', 't', 's')' not found. 1 pattern(s) tried: ['contacts/(?P<order>[^/]+)\\Z']
+
     def test_url_available_by_name(self):
-        response = self.client.get(reverse("contacts", args=("contacts",)))
+        response = self.client.get(reverse("contacts", args=("name",)))
         self.assertEqual(response.status_code, 200)
 
     def test_template_name_correct(self):
-        response = self.client.get(reverse("contacts", args=("contacts",)))
+        response = self.client.get(reverse("contacts", args=("name",)))
         self.assertTemplateUsed(response, "contacts.html")
 
-    def test_template_content(self):
-        response = self.client.get(reverse("contacts", args=("contacts",)))
-        self.assertContains(response, "<h2>Contacts</h2>")
-        self.assertNotContains(response, "Under construction ...")
+    def test_view_displays_contacts(self):
+        response = self.client.get(reverse("contacts", args=("name",)))
+        self.assertContains(response, 'Test Contact 1')
+        self.assertContains(response, 'Test Contact 2')
