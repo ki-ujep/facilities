@@ -16,5 +16,6 @@ This application is designed to manage devices used by members of Czech academy 
 - Pull this repository
 - Change environment variables in `docker-compose-prod.yml` file
 - Run `./setup.sh`
+- Use Nginx (we provide sample `nginx.conf`) or any other server as reverse proxy to serve `./media` directory and provide TLS offloading
 
 ## Documentation (ToDo)
