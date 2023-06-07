@@ -1,9 +1,13 @@
 from .settings import *
 
 DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("DJANGO_DB_NAME", "facilities"),
+        'USER': os.environ.get("DJANGO_DB_USER", "facilities"),
+        'PASSWORD': os.environ.get("DJANGO_DB_PASSWORD", "letmein"),
+        'HOST': os.environ.get("DJANGO_DB_HOST", "localhost"),
+        'PORT': os.environ.get("DJANGO_DB_PORT", "5432"),
     }
 }
 
