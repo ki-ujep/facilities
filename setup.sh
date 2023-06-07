@@ -9,10 +9,6 @@ echo -n "Enter superadmin password: "
 read -s superadmin_password
 echo ""
 
-# print entered values
-echo "Superadmin username: $superadmin_username"
-echo "Superadmin password: $superadmin_password"
-
 # Copy media file to mount point
 echo "Copying media files to mount point..."
 cp -ar ./facility/media ./media
