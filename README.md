@@ -15,6 +15,6 @@ This application is designed to manage devices used by members of Czech academy 
 ## Installation
 - Pull this repository
 - Change environment variables in `docker-compose-prod.yml` file
-- Run ./setup.py
+- Run `./setup.sh`
 
 ## Documentation (ToDo)
