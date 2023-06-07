@@ -101,12 +101,45 @@ class DeviceModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up non-modified objects used by all test methods
-        Device.objects.create(name='Test Device', serial_number='123456')
+        Usage.objects.create(academical_usage='Test Usage')
+        Faculty.objects.create(name='Test Faculty')
+        Category.objects.create(name='Test Category')
+        Contact.objects.create(name='Test Contact')
+        Department.objects.create(name='Test Department', faculty=Faculty.objects.get(name='Test Faculty'))
+        Laboratory.objects.create(name='Test Laboratory', faculty=Faculty.objects.get(name='Test Faculty'))
 
-    def test_name_label(self):
-        device = Device.objects.get(id=1)
-        field_label = device._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
+    def test_device_creation(self):
+        usage = Usage.objects.get(academical_usage='Test Usage')
+        faculty = Faculty.objects.get(name='Test Faculty')
+        category = Category.objects.get(name='Test Category')
+        contact = Contact.objects.get(name='Test Contact')
+        department = Department.objects.get(name='Test Department')
+        laboratory = Laboratory.objects.get(name='Test Laboratory')
+        
+        device = Device.objects.create(
+            name="Test Device",
+            description="This is a test device",
+            serial_number="12345",
+            laboratory=laboratory,
+            department=department,
+            contact=contact,
+            category=category,
+            faculty=faculty,
+        )
+        
+        device.usages.add(usage)
+        device.save()
+
+        # Now let's check that everything is set correctly
+        self.assertEquals(device.name, "Test Device")
+        self.assertEquals(device.description, "This is a test device")
+        self.assertEquals(device.serial_number, "12345")
+        self.assertEquals(device.laboratory, laboratory)
+        self.assertEquals(device.department, department)
+        self.assertEquals(device.contact, contact)
+        self.assertEquals(device.category, category)
+        self.assertEquals(device.faculty, faculty)
+        self.assertTrue(usage in device.usages.all())
 
 class AttachmentModelTest(TestCase):
 
