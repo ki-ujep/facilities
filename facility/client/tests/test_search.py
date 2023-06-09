@@ -1,64 +1,97 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.urls import reverse
-from client.views import search_result
 from client.models import Device, Category, Laboratory, Department, Contact, Faculty, Usage
 
-class SearchResultsViewTest(TestCase):
-    """
+class SearchResultViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        cls.factory = RequestFactory()
+        # Set up Faculty for the devices
+        cls.faculty1 = Faculty.objects.create(name='Test Faculty 1')
 
-        # Create sample devices for the tests
-        cls.category = Category.objects.create(name="TestCategory")
-        cls.lab = Laboratory.objects.create(name="TestLab")
-        cls.dept = Department.objects.create(name="TestDept")
-        cls.contact = Contact.objects.create(name="TestContact", email="contact@test.com")
-        cls.faculty = Faculty.objects.create(name="TestFaculty")
-        cls.usage = Usage.objects.create(academical_usage="TestUsage")
+        # Set up Category for the devices
+        cls.category1 = Category.objects.create(name='Category 1')
 
-        cls.device_matching = Device.objects.create(name="TestDevice", serial_number="123456", category=cls.category,
-                                                    laboratory=cls.lab, department=cls.dept, contact=cls.contact, faculty=cls.faculty)
-        cls.device_matching.usages.add(cls.usage)
+        # Set up Department for the devices
+        cls.department1 = Department.objects.create(name='Department 1', faculty=cls.faculty1)
 
-        cls.device_not_matching = Device.objects.create(name="AnotherDevice", serial_number="654321", category=cls.category,
-                                                        laboratory=cls.lab, department=cls.dept, contact=cls.contact, faculty=cls.faculty)
-        cls.device_not_matching.usages.add(cls.usage)
+        # Set up Laboratory for the devices
+        cls.laboratory1 = Laboratory.objects.create(name='Laboratory 1', adress='Address 1', faculty=cls.faculty1)
 
-    def test_uses_correct_template(self):
-        request = self.factory.get(reverse('search_result') + '?query=TestDevice')
-        response = search_result(request)
-        self.assertTemplateUsed(response, 'devicelist.html')
+        # Set up Usage for the devices
+        cls.usage1 = Usage.objects.create(academical_usage='Usage 1')
 
-    def test_context_data(self):
-        request = self.factory.get(reverse('search_result') + '?query=TestDevice')
-        response = search_result(request)
-        self.assertIn('devices', response.context)
-        self.assertIn('listing_name', response.context)
-        self.assertIn('found_message', response.context)
-        self.assertIn('order', response.context)
+        # Set up Contact for the devices
+        cls.contact1 = Contact.objects.create(name='Contact 1', email='contact1@test.com', phone='123456789')
 
-    def test_matching_devices(self):
-        request = self.factory.get(reverse('search_result') + '?query=TestDevice')
-        response = search_result(request)
-        devices = response.context['devices']
+        # Set up Device
+        cls.device1 = Device.objects.create(
+            name='Device 1',
+            serial_number='1234',
+            faculty=cls.faculty1,
+            contact=cls.contact1,
+            laboratory=cls.laboratory1,
+            department=cls.department1,
+            category=cls.category1,
+        )
+        cls.device1.usages.add(cls.usage1)
 
-        # The queryset should contain our matching device
-        self.assertIn(self.device_matching, devices)
+    def test_search_sql_injection(self):
+        response = self.client.get(reverse('search_result'), {'query': "' OR 1=1; --"})
+        self.assertEqual(response.status_code, 200)
 
-        # The queryset should not contain our non-matching device
-        self.assertNotIn(self.device_not_matching, devices)
+    def test_search_long_input(self):
+        long_query = 'a' * 10000
+        response = self.client.get(reverse('search_result'), {'query': long_query})
+        self.assertEqual(response.status_code, 200)
 
-    def test_no_matching_devices(self):
-        request = self.factory.get(reverse('search_result') + '?query=NonExistentDevice')
-        response = search_result(request)
-        devices = response.context['devices']
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("search_result") + '?query=Device%201')
+        self.assertEqual(response.status_code, 200)
 
-        # The queryset should not contain our matching device
-        self.assertNotIn(self.device_matching, devices)
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("search_result") + '?query=Device%201')
+        self.assertTemplateUsed(response, "devicelist.html")
 
-        # The queryset should contain our non-matching device
-        self.assertIn(self.device_not_matching, devices)
-        """
-    pass
+    def test_search_by_device_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Device%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_serial_number(self):
+        response = self.client.get(reverse('search_result') + '?query=1234')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_contact_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Contact%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_contact_email(self):
+        response = self.client.get(reverse('search_result') + '?query=contact1@test.com')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_contact_phone(self):
+        response = self.client.get(reverse('search_result') + '?query=123456789')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_academical_usage(self):
+        response = self.client.get(reverse('search_result') + '?query=Usage%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_laboratory_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Laboratory%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_laboratory_address(self):
+        response = self.client.get(reverse('search_result') + '?query=Address%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_faculty_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Test%20Faculty%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_department_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Department%201')
+        self.assertContains(response, 'Device 1')
+
+    def test_search_by_category_name(self):
+        response = self.client.get(reverse('search_result') + '?query=Category%201')
+        self.assertContains(response, 'Device 1')
