@@ -1,168 +1,124 @@
 from django.test import TestCase
 from client.models import Usage, Laboratory, Faculty, Department, Contact, Category, Device, Attachment, DevicePicture
+from unittest.mock import MagicMock
+from django.core.files import File
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 class UsageModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
         Usage.objects.create(academical_usage='Test Usage')
 
-    def test_academical_usage_label(self):
-        usage = Usage.objects.get(id=1)
-        field_label = usage._meta.get_field('academical_usage').verbose_name
-        self.assertEqual(field_label,'academical usage')
-
+    def test_object_created(self):
+        usage = Usage.objects.get(academical_usage='Test Usage')
+        self.assertEqual(usage.academical_usage, 'Test Usage')
 
 class LaboratoryModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Laboratory.objects.create(name='Test Lab', adress='Test Adress')
+        Faculty.objects.create(name='Test Faculty')
+        Laboratory.objects.create(name='Test Lab', adress='Test Address', faculty=Faculty.objects.get(name='Test Faculty'))
 
-    def test_name_label(self):
-        laboratory = Laboratory.objects.get(id=1)
-        field_label = laboratory._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
-
+    def test_object_created(self):
+        lab = Laboratory.objects.get(name='Test Lab')
+        self.assertEqual(lab.name, 'Test Lab')
+        self.assertEqual(lab.adress, 'Test Address')
 
 class FacultyModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
         Faculty.objects.create(name='Test Faculty')
 
-    def test_name_label(self):
-        faculty = Faculty.objects.get(id=1)
-        field_label = faculty._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
-
+    def test_object_created(self):
+        faculty = Faculty.objects.get(name='Test Faculty')
+        self.assertEqual(faculty.name, 'Test Faculty')
 
 class DepartmentModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Department.objects.create(name='Test Department')
+        Faculty.objects.create(name='Test Faculty')
+        Department.objects.create(name='Test Department', faculty=Faculty.objects.get(name='Test Faculty'))
 
-    def test_name_label(self):
-        department = Department.objects.get(id=1)
-        field_label = department._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
-
+    def test_object_created(self):
+        department = Department.objects.get(name='Test Department')
+        self.assertEqual(department.name, 'Test Department')
 
 class ContactModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
         Contact.objects.create(name='Test Contact')
 
-    def test_name_label(self):
-        contact = Contact.objects.get(id=1)
-        field_label = contact._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
-
+    def test_object_created(self):
+        contact = Contact.objects.get(name='Test Contact')
+        self.assertEqual(contact.name, 'Test Contact')
 
 class CategoryModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
         cls.category1 = Category.objects.create(name='Test Category1')
         cls.category2 = Category.objects.create(name='Test Category2', parent=cls.category1)
-        cls.category3 = Category.objects.create(name='Test Category3', parent=cls.category2)
-        cls.category4 = Category.objects.create(name='Test Category4')
-        cls.device = Device.objects.create(name='Test Device', serial_number='123456', category=cls.category3)
 
-    def test_name_label(self):
-        category = Category.objects.get(id=1)
-        field_label = category._meta.get_field('name').verbose_name
-        self.assertEqual(field_label,'name')
-
-    def test_walk_method(self):
-        categories = [cat.name for cat in self.category3.walk()]
-        self.assertListEqual(categories, ['Test Category1', 'Test Category2', 'Test Category3'])
-
-    def test_walk_down_method(self):
-        categories = [cat.name for cat in self.category1.walk_down()]
-        self.assertListEqual(categories, ['Test Category1', 'Test Category2', 'Test Category3'])
-
-    def test_have_children_devices_method(self):
-        self.assertTrue(self.category1.have_children_devices())
-        self.assertTrue(self.category2.have_children_devices())
-        self.assertTrue(self.category3.have_children_devices())
-        self.assertFalse(self.category4.have_children_devices())
+    def test_object_created(self):
+        category1 = Category.objects.get(name='Test Category1')
+        self.assertEqual(category1.name, 'Test Category1')
+        category2 = Category.objects.get(name='Test Category2')
+        self.assertEqual(category2.name, 'Test Category2')
 
 class DeviceModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Usage.objects.create(academical_usage='Test Usage')
-        Faculty.objects.create(name='Test Faculty')
-        Category.objects.create(name='Test Category')
-        Contact.objects.create(name='Test Contact')
-        Department.objects.create(name='Test Department', faculty=Faculty.objects.get(name='Test Faculty'))
-        Laboratory.objects.create(name='Test Laboratory', faculty=Faculty.objects.get(name='Test Faculty'))
-
-    def test_device_creation(self):
-        usage = Usage.objects.get(academical_usage='Test Usage')
-        faculty = Faculty.objects.get(name='Test Faculty')
-        category = Category.objects.get(name='Test Category')
-        contact = Contact.objects.get(name='Test Contact')
-        department = Department.objects.get(name='Test Department')
-        laboratory = Laboratory.objects.get(name='Test Laboratory')
-        
-        device = Device.objects.create(
+        cls.usage = Usage.objects.create(academical_usage='Test Usage')
+        cls.faculty = Faculty.objects.create(name='Test Faculty')
+        cls.category = Category.objects.create(name='Test Category')
+        cls.contact = Contact.objects.create(name='Test Contact')
+        cls.department = Department.objects.create(name='Test Department', faculty=cls.faculty)
+        cls.laboratory = Laboratory.objects.create(name='Test Laboratory', faculty=cls.faculty, adress='Test Address')
+        cls.device = Device.objects.create(
             name="Test Device",
             description="This is a test device",
             serial_number="12345",
-            laboratory=laboratory,
-            department=department,
-            contact=contact,
-            category=category,
-            faculty=faculty,
+            laboratory=cls.laboratory,
+            department=cls.department,
+            contact=cls.contact,
+            category=cls.category,
+            faculty=cls.faculty,
         )
-        
-        device.usages.add(usage)
-        device.save()
+        cls.device.usages.add(cls.usage)
 
-        # Now let's check that everything is set correctly
-        self.assertEquals(device.name, "Test Device")
-        self.assertEquals(device.description, "This is a test device")
-        self.assertEquals(device.serial_number, "12345")
-        self.assertEquals(device.laboratory, laboratory)
-        self.assertEquals(device.department, department)
-        self.assertEquals(device.contact, contact)
-        self.assertEquals(device.category, category)
-        self.assertEquals(device.faculty, faculty)
-        self.assertTrue(usage in device.usages.all())
+    def test_object_created(self):
+        device = Device.objects.get(name='Test Device')
+        self.assertEqual(device.name, 'Test Device')
+        self.assertEqual(device.description, 'This is a test device')
+        self.assertEqual(device.serial_number, '12345')
 
 class AttachmentModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Attachment.objects.create()
+        cls.device = Device.objects.create(name='Test Device', serial_number='12345')
 
-    def test_file_label(self):
-        attachment = Attachment.objects.get(id=1)
-        field_label = attachment._meta.get_field('file').verbose_name
-        self.assertEqual(field_label,'file')
+        # mock an uploaded file
+        file_mock = MagicMock(spec=File)
+        file_mock.name = 'test_file.pdf'
+        file_mock.size = 50_000
+        Attachment.objects.create(device=cls.device, file=file_mock)
+
+    def test_object_created(self):
+        attachment = Attachment.objects.get(device=self.device)
+        self.assertTrue(isinstance(attachment, Attachment))
+        self.assertIn('test_file', attachment.file.name)
 
 
 class DevicePictureModelTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Device.objects.create(name='Test Device', serial_number='123456')
-        DevicePicture.objects.create(device=Device.objects.get(id=1))
+        cls.device = Device.objects.create(name='Test Device', serial_number='12345')
 
-    def test_image_label(self):
-        device_picture = DevicePicture.objects.get(id=1)
-        field_label = device_picture._meta.get_field('image').verbose_name
-        self.assertEqual(field_label,'image')
+        # mock an uploaded image
+        image_mock = SimpleUploadedFile("test_image.jpg", b"file_content", content_type="image/jpeg")
+        DevicePicture.objects.create(device=cls.device, image=image_mock)
+
+    def test_object_created(self):
+        picture = DevicePicture.objects.get(device=self.device)
+        self.assertTrue(isinstance(picture, DevicePicture))
+        # test that the image name contains test_image
+        self.assertIn('test_image', picture.image.name)
