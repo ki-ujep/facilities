@@ -8,11 +8,6 @@ class AboutPageTests(SimpleTestCase):
         self.client = Client()
         super(AboutPageTests, self).__init__(*args, **kwargs)
 
-    """
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get("about")
-        self.assertEqual(response, 200)
-    """
     def test_url_available_by_name(self):
         response = self.client.get(reverse("about"))
         self.assertEqual(response.status_code, 200)
@@ -32,11 +27,6 @@ class HelpPageTests(SimpleTestCase):
         self.client = Client()
         super(HelpPageTests, self).__init__(*args, **kwargs)
 
-    """
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get(reverse("help"))
-        self.assertEqual(response.status_code, 200)
-    """
     def test_url_available_by_name(self):
         response = self.client.get(reverse("help"))
         self.assertEqual(response.status_code, 200)
@@ -56,11 +46,6 @@ class HomePageTests(TestCase):
         self.client = Client()
         super(HomePageTests, self).__init__(*args, **kwargs)
 
-    """
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get(reverse("home"))
-        self.assertEqual(response.status_code, 200)
-    """
     def test_url_available_by_name(self):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
@@ -94,10 +79,6 @@ class ContactsPageTests(TestCase):
             phone='0987654321',
             photo='managers/contact2.png'
         )
-
-    def test_url_exists_at_correct_location(self):
-        response = self.client.get(reverse("contacts", args=("name",)))
-        self.assertEqual(response.status_code, 200)
 
     def test_url_available_by_name(self):
         response = self.client.get(reverse("contacts", args=("name",)))
@@ -148,6 +129,14 @@ class FacultyDevicesListViewTests(TestCase):
                                             department=cls.department2, laboratory=cls.laboratory2,
                                             faculty=cls.faculty2)
 
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("facultydevices", args=[self.faculty1.id]))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("facultydevices", args=[self.faculty1.id]))
+        self.assertTemplateUsed(response, "facultydevices.html")
+
     def test_response_data(self):
         response = self.client.get(reverse('facultydevices', args=[self.faculty1.id]))
 
@@ -180,6 +169,14 @@ class CategoryDevicesListViewTests(TestCase):
         cls.category2 = Category.objects.create(name='Category 2')
         cls.device2a = Device.objects.create(name='Device 2a', category=cls.category2, faculty=cls.faculty)
         cls.device2b = Device.objects.create(name='Device 2b', category=cls.category2, faculty=cls.faculty)
+
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("categorydevices", kwargs={'category_id': self.category1.id, 'order': 'asc'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("categorydevices", kwargs={'category_id': self.category1.id, 'order': 'asc'}))
+        self.assertTemplateUsed(response, "categorydevices.html")
 
     def test_response_data(self):
         response = self.client.get(reverse('categorydevices', kwargs={'category_id': self.category1.id, 'order': 'asc'}))
@@ -217,6 +214,14 @@ class DepartmentDevicesListViewTests(TestCase):
         cls.device2a = Device.objects.create(name='Device 2a', department=cls.department2, faculty=cls.faculty)
         cls.device2b = Device.objects.create(name='Device 2b', department=cls.department2, faculty=cls.faculty)
 
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("departmentdevices", kwargs={'department_id': self.department1.id, 'order': 'asc'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("departmentdevices", kwargs={'department_id': self.department1.id, 'order': 'asc'}))
+        self.assertTemplateUsed(response, "departmentdevices.html")
+
     def test_response_data(self):
         response = self.client.get(reverse('departmentdevices', kwargs={'department_id': self.department1.id, 'order': 'asc'}))
         content = str(response.content)
@@ -252,6 +257,14 @@ class LaboratoryDevicesListViewTests(TestCase):
         cls.laboratory2 = Laboratory.objects.create(name='Laboratory 2', faculty=cls.faculty)
         cls.device2a = Device.objects.create(name='Device 2a', laboratory=cls.laboratory2, faculty=cls.faculty)
         cls.device2b = Device.objects.create(name='Device 2b', laboratory=cls.laboratory2, faculty=cls.faculty)
+
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("laboratorydevices", kwargs={'laboratory_id': self.laboratory1.id, 'order': 'asc'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("laboratorydevices", kwargs={'laboratory_id': self.laboratory1.id, 'order': 'asc'}))
+        self.assertTemplateUsed(response, "laboratorydevices.html")
 
     def test_response_data(self):
         response = self.client.get(reverse('laboratorydevices', kwargs={'laboratory_id': self.laboratory1.id, 'order': 'asc'}))
@@ -294,6 +307,14 @@ class UsageDevicesListViewTests(TestCase):
         cls.device2b = Device.objects.create(name='Device 2b', faculty=cls.faculty)
         cls.device2a.usages.add(cls.usage2)
         cls.device2b.usages.add(cls.usage2)
+
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("usagedevices", kwargs={'usage_id': self.usage1.id, 'order': 'asc'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("usagedevices", kwargs={'usage_id': self.usage1.id, 'order': 'asc'}))
+        self.assertTemplateUsed(response, "usagedevices.html")
 
     def test_response_data(self):
         response = self.client.get(reverse('usagedevices', kwargs={'usage_id': self.usage1.id, 'order': 'asc'}))
@@ -348,6 +369,14 @@ class SearchResultViewTests(TestCase):
             category=cls.category1,
         )
         cls.device1.usages.add(cls.usage1)
+
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("search_result") + '?query=Device%201')
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("search_result") + '?query=Device%201')
+        self.assertTemplateUsed(response, "devicelist.html")
 
     def test_search_by_device_name(self):
         response = self.client.get(reverse('search_result') + '?query=Device%201')
@@ -422,6 +451,14 @@ class ContactDevicesListViewTests(TestCase):
             department=cls.department, faculty=cls.faculty,
         )
 
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("contactdevices", kwargs={'contact_id': self.contact1.id, 'order': 'asc'}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("contactdevices", kwargs={'contact_id': self.contact1.id, 'order': 'asc'}))
+        self.assertTemplateUsed(response, "contactdevices.html")
+
     def test_response_data(self):
         response = self.client.get(reverse('contactdevices', kwargs={'contact_id': self.contact1.id, 'order': 'asc'}))
         self.assertContains(response, 'Device1')
@@ -476,6 +513,14 @@ class DeviceDetailViewTests(TestCase):
         )
         cls.device.usages.add(cls.usage)
 
+    def test_url_available_by_name(self):
+        response = self.client.get(reverse("device", kwargs={'device_id': self.device.id}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("device", kwargs={'device_id': self.device.id}))
+        self.assertTemplateUsed(response, "device.html")
+
     def test_device_detail_view(self):
         response = self.client.get(reverse('device', kwargs={'device_id': self.device.id}))
 
@@ -487,4 +532,3 @@ class DeviceDetailViewTests(TestCase):
         self.assertContains(response, 'Category Test')
         self.assertContains(response, 'Laboratory Test')
         self.assertContains(response, 'Usage Test')
-        
