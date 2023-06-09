@@ -77,9 +77,23 @@ class HomePageTests(TestCase):
 class ContactsPageTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Contact.objects.create(name='Test Contact 1')
-        Contact.objects.create(name='Test Contact 2')
+        # Create a few Contact instances with all fields
+        cls.contact1 = Contact.objects.create(
+            name='Contact Test1',
+            titles='Mr.',
+            titles_after='PhD',
+            email='contact1@test.com',
+            phone='1234567890',
+            photo='managers/contact1.png'
+        )
+        cls.contact2 = Contact.objects.create(
+            name='Contact Test2',
+            titles='Mrs.',
+            titles_after='MSc',
+            email='contact2@test.com',
+            phone='0987654321',
+            photo='managers/contact2.png'
+        )
 
     def test_url_exists_at_correct_location(self):
         response = self.client.get(reverse("contacts", args=("name",)))
@@ -93,10 +107,26 @@ class ContactsPageTests(TestCase):
         response = self.client.get(reverse("contacts", args=("name",)))
         self.assertTemplateUsed(response, "contacts.html")
 
-    def test_view_displays_contacts(self):
-        response = self.client.get(reverse("contacts", args=("name",)))
-        self.assertContains(response, 'Test Contact 1')
-        self.assertContains(response, 'Test Contact 2')
+    def test_contacts_list_view(self):
+        response = self.client.get(reverse('contacts', kwargs={'order': 'asc'}))
+
+        # Check that the response has a status code of 200
+        self.assertEqual(response.status_code, 200)
+
+        # Check that the response contains the details of the contacts
+        self.assertContains(response, 'Contact Test1')
+        self.assertContains(response, 'Mr.')
+        self.assertContains(response, 'PhD')
+        self.assertContains(response, 'contact1@test.com')
+        self.assertContains(response, '1234567890')
+        self.assertContains(response, 'managers/contact1.png')
+
+        self.assertContains(response, 'Contact Test2')
+        self.assertContains(response, 'Mrs.')
+        self.assertContains(response, 'MSc')
+        self.assertContains(response, 'contact2@test.com')
+        self.assertContains(response, '0987654321')
+        self.assertContains(response, 'managers/contact2.png')
 
 class FacultyDevicesListViewTests(TestCase):
     @classmethod
@@ -362,3 +392,99 @@ class SearchResultViewTests(TestCase):
     def test_search_by_category_name(self):
         response = self.client.get(reverse('search_result') + '?query=Category%201')
         self.assertContains(response, 'Device 1')
+
+class ContactDevicesListViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        # Create a Faculty instance
+        cls.faculty = Faculty.objects.create(name='Faculty Test')
+
+        # Create a Department instance
+        cls.department = Department.objects.create(name='Department Test', faculty=cls.faculty)
+
+        # Create a Category instance
+        cls.category = Category.objects.create(name='Category Test')
+
+        # Create two Contact instances
+        cls.contact1 = Contact.objects.create(name='Contact1 Test')
+        cls.contact2 = Contact.objects.create(name='Contact2 Test')
+
+        # Create devices for each contact
+        cls.device1 = Device.objects.create(
+            name='Device1', serial_number='123', 
+            contact=cls.contact1, category=cls.category, 
+            department=cls.department, faculty=cls.faculty,
+        )
+
+        cls.device2 = Device.objects.create(
+            name='Device2', serial_number='456', 
+            contact=cls.contact2, category=cls.category, 
+            department=cls.department, faculty=cls.faculty,
+        )
+
+    def test_response_data(self):
+        response = self.client.get(reverse('contactdevices', kwargs={'contact_id': self.contact1.id, 'order': 'asc'}))
+        self.assertContains(response, 'Device1')
+        self.assertNotContains(response, 'Device2')
+
+        response = self.client.get(reverse('contactdevices', kwargs={'contact_id': self.contact2.id, 'order': 'asc'}))
+        self.assertContains(response, 'Device2')
+        self.assertNotContains(response, 'Device1')
+
+    def test_ordering(self):
+        # Create another device for contact1
+        device3 = Device.objects.create(
+            name='Device0', serial_number='789', 
+            contact=self.contact1, category=self.category, 
+            department=self.department, faculty=self.faculty,
+        )
+
+        response = self.client.get(reverse('contactdevices', kwargs={'contact_id': self.contact1.id, 'order': 'asc'}))
+        # Verify device3 appears before device1 in the response because it's name is 'Device0' which comes before 'Device1' in alphabetical order
+        self.assertLess(response.content.index(b'Device0'), response.content.index(b'Device1'))
+
+class DeviceDetailViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        # Create a Faculty instance
+        cls.faculty = Faculty.objects.create(name='Faculty Test')
+
+        # Create a Department instance
+        cls.department = Department.objects.create(name='Department Test', faculty=cls.faculty)
+
+        # Create a Category instance
+        cls.category = Category.objects.create(name='Category Test')
+
+        # Create a Laboratory instance
+        cls.laboratory = Laboratory.objects.create(name='Laboratory Test', faculty=cls.faculty)
+
+        # Create a Contact instance
+        cls.contact = Contact.objects.create(name='Contact Test')
+
+        # Create a Usage instance
+        cls.usage = Usage.objects.create(academical_usage='Usage Test')
+
+        # Create a Device instance
+        cls.device = Device.objects.create(
+            name='Device Test', 
+            serial_number='123',
+            contact=cls.contact,
+            department=cls.department,
+            faculty=cls.faculty,
+            category=cls.category,
+            laboratory=cls.laboratory,
+        )
+        cls.device.usages.add(cls.usage)
+
+    def test_device_detail_view(self):
+        response = self.client.get(reverse('device', kwargs={'device_id': self.device.id}))
+
+        self.assertContains(response, 'Device Test')
+        self.assertContains(response, '123')  # Serial number
+        self.assertContains(response, 'Contact Test')
+        self.assertContains(response, 'Department Test')
+        self.assertContains(response, 'Faculty Test')
+        self.assertContains(response, 'Category Test')
+        self.assertContains(response, 'Laboratory Test')
+        self.assertContains(response, 'Usage Test')
+        
