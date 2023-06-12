@@ -47,6 +47,7 @@ class Faculty(models.Model):
     name = models.CharField(max_length=255)
     logo_en = models.ImageField(upload_to="faculties_logo/", max_length=255, null=True, blank=True)
     active = models.BooleanField(default=False)
+    is_partner_organization = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = "Faculties"

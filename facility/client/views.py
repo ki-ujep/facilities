@@ -16,9 +16,16 @@ def about(request):
     return render(request, "about.html")
 
 def home(request):
-    faculties = Faculty.objects.all().order_by("name")
+    faculties = Faculty.objects.filter(
+        is_partner_organization=False
+    ).order_by("name")
+
+    organizations = Faculty.objects.filter(
+        is_partner_organization=True
+    ).order_by("name")
     context = {
         "faculties": faculties,
+        "organizations": organizations,
     }
     return render(request, "home.html", context)
 
@@ -44,6 +51,7 @@ class FacultyDevicesListView(TemplateView):
         laboratories = Laboratory.objects.filter(faculty=faculty).distinct()
 
         context["faculty_name"] = faculty.name
+        context["faculty"] = faculty
         context["faculty_id"] = faculty.id
         context["categories"] = root_categories
         context["departments"] = departments
