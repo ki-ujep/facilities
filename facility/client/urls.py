@@ -10,6 +10,8 @@ urlpatterns = [
 
     path('faculty/<int:faculty_id>',
          views.FacultyDevicesListView.as_view(), name='facultydevices'),
+    path('organization/<int:faculty_id>',
+         views.FacultyDevicesListView.as_view(), name='organizationdevices'),
     path('contact/<int:contact_id>/<str:order>',
          views.ContactDevicesListView.as_view(), name='contactdevices'),
     path('device/<int:device_id>',

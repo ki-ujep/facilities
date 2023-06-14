@@ -8,7 +8,11 @@
 {% endblock %}
 
 {% block title %}
-    Faculty Devices
+    {% if faculty.is_partner_organization %}
+        Partner organization Devices
+    {% else %}
+        Faculty Devices
+    {% endif %}
 {% endblock %}
 
 
