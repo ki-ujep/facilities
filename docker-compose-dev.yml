@@ -9,9 +9,15 @@ services:
       - POSTGRESQL_DATABASE=facilities
     volumes:
       - 'postgresql_data:/bitnami/postgresql'
+      - 'postgresql_initdb:/docker-entrypoint-initdb.d'
+      - 'postgresql_pre_initdb:/docker-entrypoint-preinitdb.d'
     ports:
       - '127.0.0.1:5432:5432'
 
 volumes:
   postgresql_data:
+    driver: local
+  postgresql_initdb:
+    driver: local
+  postgresql_pre_initdb:
     driver: local
