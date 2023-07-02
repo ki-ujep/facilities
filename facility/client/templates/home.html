@@ -50,7 +50,7 @@
             {% if organization.active == True %}
                 <li class="card" style="width:400px">
                     <a href="{% url 'organizationdevices' faculty_id=organization.id %}"
-                       class="text-decoration-none organization">
+                       class="text-decoration-none faculty">
                         <div class="card-body">
                             <h4 class="card-title">{{ organization.name }}</h4>
                             {% if organization.logo_en %}
